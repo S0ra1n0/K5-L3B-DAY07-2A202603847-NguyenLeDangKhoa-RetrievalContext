@@ -146,4 +146,4 @@ Cách kiểm tra:
   - Thêm `scripts/load_vectors.py` để nạp lại pgvector mà không cần repo Day 6. Dry run: 552 vector khớp chunk, embed lại cho cosine bằng 1,0.
 - Khóa quy trình chặn chạy khi benchmark chưa đóng băng và chặn chạy test trước khi chọn cấu hình.
 - Mọi số trong báo cáo sinh từ file kết quả.
-- Tôi duyệt câu t01 (và yêu cầu sửa `expected_answer`), chọn chủ đề test, xác nhận tiêu chí và cấu hình được chọn. Tôi **chưa** duyệt từng nhãn câu trả lời.
+- Tôi chọn chủ đề test và duyệt cả 14 câu mới (t01–t11, u01–u03) theo nguyên văn luật. Ở t01, tôi yêu cầu bỏ ý thừa trong `expected_answer`, sửa trước khi đóng băng. Tôi xác nhận tiêu chí và cấu hình được chọn. Tôi **chưa** duyệt từng nhãn câu trả lời của agent.
