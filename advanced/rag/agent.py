@@ -37,8 +37,10 @@ Rules:
    "Not enough evidence in the International Debt Report 2026 to answer this question."
    Do not guess, do not use outside knowledge, do not answer a different year or country instead.
 7. Give the final answer directly in 1-4 sentences, each with its citation. Do not think aloud or re-check in the answer.
+8. In a country or regional profile, amounts listed under a creditor (e.g. "Russian Federation 1,392" on Viet Nam's
+   page) are debt owed BY that page's country TO the creditor. They are not the creditor's own debt.
 {view_rule}Answer in English."""
-VIEW_RULE = ("8. If a figure or profile block does not state the value you need but the chart shows it, call view_page "
+VIEW_RULE = ("9. If a figure or profile block does not state the value you need but the chart shows it, call view_page "
              "with that block's PDF page (p.NNN) and a narrow question, then cite the [pNNN-page] block.\n")
 
 SEARCH_TOOL = {"type": "function", "function": {
@@ -57,9 +59,12 @@ VIEW_TOOL = {"type": "function", "function": {
         "required": ["pdf_page", "question"]}}}
 
 ABSTAIN_PATTERN = re.compile(r"not\s+enough\s+evidence", re.IGNORECASE)
-ID = r"p\d{3}-(?:text-\d+|table-\d+|figure-\d+|profile|page)"
+ID = r"p\d{3}-(?:text-\d+|table-\d+(?:-row\d+)?|figure-\d+|profile|page)"
 CITATION_PATTERN = re.compile(rf"\[\s*({ID}(?:\s*[,;|]\s*{ID})*)\s*\]")
 OLD_TOOL_NOTE = "(Merged into the latest tool result below.)"
+RETRY_PROMPT = ("Your answer has no block citations. Rewrite the same answer in 1-4 sentences and put the block id(s) "
+                "in square brackets after each claim, or, if the blocks do not support it, reply exactly: "
+                "\"Not enough evidence in the International Debt Report 2026 to answer this question.\"")
 VIEW_PROMPT = ("You are reading one page of the World Bank International Debt Report 2026. Answer only from what is "
                "printed on this page image. Copy numbers exactly with their units; say 'about' for values read from "
                "an axis; if the page does not show it, say 'not shown on this page'.\nQuestion: {q}")
@@ -112,7 +117,7 @@ class Context:
 
 def run_agent(question: str, llm, retriever, builder: Context, *, max_searches: int = 3, top_k: int = 5,
               view_page: bool = False, max_views: int = 2, vision_model: str = "qwen3.5:9b",
-              max_llm_calls: int | None = None) -> dict[str, Any]:
+              max_llm_calls: int | None = None, citation_retry: bool = False) -> dict[str, Any]:
     sys.path.insert(0, str(ROOT))
     from advanced.scripts.extract import ollama_vision
     from src import config
@@ -124,6 +129,7 @@ def run_agent(question: str, llm, retriever, builder: Context, *, max_searches: 
     usage = {"llm_calls": 0, "prompt_tokens": 0, "output_tokens": 0, "llm_seconds": 0.0, "retrieval_seconds": 0.0,
              "vision_calls": 0, "vision_seconds": 0.0, "vision_prompt_tokens": 0, "vision_output_tokens": 0}
     started, nudged, searches, views, last_ctx_idx = time.perf_counter(), False, 0, 0, None
+    retried = False
 
     def call(t):
         out = llm.chat(messages, t)
@@ -207,6 +213,14 @@ def run_agent(question: str, llm, retriever, builder: Context, *, max_searches: 
                 messages.append({"role": "user", "content": "No more tool calls. Answer from the blocks you have or say there is not enough evidence."})
                 continue
             answer = (msg.get("content") or "").strip()
+            # one repair turn when the model answered without any [id] (dev v1: 5 correct answers lost this way)
+            if (citation_retry and searches > 0 and not retried and answer and not parse_citations(answer)
+                    and not ABSTAIN_PATTERN.search(answer)):
+                retried = True
+                events.append({"event": "citation_retry", "first_answer": answer})
+                messages.append({"role": "assistant", "content": answer})
+                messages.append({"role": "user", "content": RETRY_PROMPT})
+                continue
             break
     except Exception as exc:
         return {"status": "error", "error": repr(exc), "answer": None, "citations": [], "events": events,

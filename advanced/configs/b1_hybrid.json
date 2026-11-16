@@ -1,0 +1,2 @@
+{"name": "b1_hybrid", "retriever": {"method": "hybrid", "candidates": 20, "rrf_k": 60}, "top_k": 5, "max_searches": 3, "budget": 7000, "view_page": false, "citation_retry": true,
+ "note": "v2 of a1: table_row chunks + rule 8 + citation repair"}

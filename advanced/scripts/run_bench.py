@@ -82,7 +82,7 @@ def main():
         t = time.perf_counter()
         out = run_agent(q["question"], llm, retriever, builder, max_searches=cfg.get("max_searches", 3),
                         top_k=cfg.get("top_k", 5), view_page=cfg.get("view_page", False),
-                        max_views=cfg.get("max_views", 2))
+                        max_views=cfg.get("max_views", 2), citation_retry=cfg.get("citation_retry", False))
         row = {"id": q["id"], "split": q["split"], "group": q["group"], "answerable": q["answerable"],
                "question": q["question"], **out, **evidence_check(q, out, chunks_by_id)}
         rows.append(row)

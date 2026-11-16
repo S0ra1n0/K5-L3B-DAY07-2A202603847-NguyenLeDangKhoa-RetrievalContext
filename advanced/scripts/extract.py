@@ -423,25 +423,29 @@ def _parse_figure2(page, top2, top3):
         nums = [w for w in ws if _is_num(w)]
         lab = " ".join(w["text"] for w in ws if not _is_num(w))
         val = nums[-1]["text"] if nums else None
+        placement = "labelled block"
         if not lab and colour(b) in legend:
             lab, lval, _ = legend[colour(b)]
             seen_colours.add(colour(b))
             val = val or lval
+            placement = "segment too small to label; named in the legend"
         sec = section_for(b["x0"], b["top"])
         if sec is None or not lab:
             if val:
                 issues.append(f"block at x={b['x0']:.0f},y={b['top']:.0f} value {val} without label/section")
             continue
         sec["items"][lab] = val
+        sec.setdefault("placement", {})[lab] = placement
     for col, (lab, val, sq) in legend.items():  # legend entries whose block is too thin to be drawn as a block
         if col in seen_colours or not val:
             continue
         sec = section_for(sq["x0"], sq["top"] - 30)
         if sec is not None and lab not in sec["items"]:
             sec["items"][lab] = val
+            sec.setdefault("placement", {})[lab] = "segment too small to label; named in the legend"
     out = {}
     for h in sorted(heads, key=lambda h: (h["top"], h["x0"])):
-        out[h["name"]] = {"total": h["total"], "items": h["items"]}
+        out[h["name"]] = {"total": h["total"], "items": h["items"], "placement": h.get("placement", {})}
         vals = [v for v in h["items"].values() if v]
         if vals:
             s = sum(float(v.replace(",", "")) for v in vals)

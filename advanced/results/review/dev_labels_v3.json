@@ -1,0 +1,29 @@
+{
+ "labeler": "Claude (AI), read each answer against the gold evidence and the PDF; human check pending",
+ "date": "2026-11-16",
+ "runs": "advanced/results/runs/{c0_dense,c2_rerank}_dev.jsonl (index v3: v2 + profile cards mark segments named in the legend; guide page p136 read by columns)",
+ "rules": "same as dev_labels_v1.json",
+ "labels": {
+  "ad01": {"c0_dense": "pass", "c2_rerank": "pass", "reason": "2,364.4 bn [p028-table-1-row09]."},
+  "ad02": {"c0_dense": "pass", "c2_rerank": "pass", "reason": "15.2 bn [p063-table-1-row07]."},
+  "ad03": {"c0_dense": "pass", "c2_rerank": "pass", "reason": "+905.0 bn [p028-table-1-row11]."},
+  "ad04": {"c0_dense": "pass", "c2_rerank": "fail",
+           "reason": "c0: A = data as reported by the country, E = estimated, P = preliminary [p136-figure-1] - exact. c2: the code meanings are right, but it adds details from the appendix note (p269: 'fully current in its reporting', 'staff estimation') while citing only p136, which does not contain them -> citation does not support the whole answer."},
+  "ad05": {"c0_dense": "pass", "c2_rerank": "pass", "reason": "China 1,644 million [p187-profile]; India no longer called a block of its own."},
+  "ad06": {"c0_dense": "pass", "c2_rerank": "pass", "reason": "Japan 40 bn [p138-profile]."},
+  "ad07": {"c0_dense": "pass", "c2_rerank": "pass", "reason": "Mexico 17,618 million [p072-figure-1]."},
+  "ad08": {"c0_dense": "pass", "c2_rerank": "pass", "reason": "2020, ~13% [p111-figure-1]."},
+  "ad09": {"c0_dense": "pass", "c2_rerank": "pass", "reason": "Türkiye, PNG ~45 bn, ~64 bn net [p046-figure-1] (see v1 note on 64 vs 69)."},
+  "ad10": {"c0_dense": "pass", "c2_rerank": "fail",
+           "reason": "c0: 8,949.6 -> 9,445.0 = +495.4 bn = 5.53% [p028-table-1-row01]. c2: rounded trillions (500 bn) from p027 text; table not retrieved."},
+  "ad11": {"c0_dense": "pass", "c2_rerank": "pass", "reason": "25 [p070-text-1]; 38,837 million [p187-profile]."},
+  "ad12": {"c0_dense": "pass", "c2_rerank": "pass", "reason": "25 = 54 - 29."},
+  "ad13": {"c0_dense": "pass", "c2_rerank": "pass", "reason": "1.2 bn, one year, 198% [p032-text-2]."},
+  "ad14": {"c0_dense": "pass", "c2_rerank": "pass", "reason": "5.5% from 5.8% [p051-text-1]."},
+  "ad15": {"c0_dense": "pass", "c2_rerank": "pass", "reason": "887, 60% [p108-text-1]."},
+  "au01": {"c0_dense": "pass", "c2_rerank": "pass", "reason": "Abstained."},
+  "au02": {"c0_dense": "pass", "c2_rerank": "pass", "reason": "Abstained."},
+  "au03": {"c0_dense": "pass", "c2_rerank": "pass", "reason": "Abstained."}
+ },
+ "summary": {"c0_dense": "18/18", "c2_rerank": "16/18"}
+}

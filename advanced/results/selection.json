@@ -1,0 +1,19 @@
+{
+ "selected_config": "advanced/configs/c0_dense.json",
+ "name": "c0_dense",
+ "chosen_on": "dev only (18 questions); test not run before this file",
+ "confirmed_by": "student (chat, 2026-11-16: 'Chọn c0_dense'), on Claude's recommendation",
+ "dev_result": "18/18 (table 3/3, figure 3/3, chart 3/3, multihop 3/3, text 3/3, unanswerable 3/3); AI labels in results/review/dev_labels_v3.json, human check pending",
+ "alternatives_on_dev": {"c2_rerank": "16/18 (24.5 s/question)", "b0_dense": "17/18", "b2_rerank": "16/18", "b1_hybrid": "15/18",
+                         "a2_rerank (v1 best)": "13/18", "a0/a1/a3 (v1)": "12/18"},
+ "reasons": ["highest dev pass rate", "fastest (8.1 s/question vs 24.5 for rerank)", "simplest pipeline (no reranker, no view_page)"],
+ "pipeline": {
+  "index": "advanced/data/index/chunks.jsonl, 552 chunks (text 351, table 2, table_row 26, figure 46, profile 127), index v3",
+  "retriever": "dense intfloat/multilingual-e5-base, exact cosine, top_k 5, up to 3 searches",
+  "agent": "Ollama qwen3.5:9b, think=false, temperature 0, seed 7; prompt rules 1-8; one citation-repair turn; context budget 7000 chars",
+  "view_page": false
+ },
+ "caveats": ["dev is small and went through 3 rounds of fixes, so the dev score is optimistic",
+             "the benchmark was drafted by AI; the human review of review_sheet.csv was not done before this selection"],
+ "test_rule": "run once with run_bench.py --split test; no change to the pipeline or the test questions after the run"
+}

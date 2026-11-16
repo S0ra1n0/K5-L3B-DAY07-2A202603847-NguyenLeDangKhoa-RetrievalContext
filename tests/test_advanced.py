@@ -167,6 +167,21 @@ class AgentLoopTests(unittest.TestCase):
         self.assertTrue(any(e["event"] == "invalid_view" for e in out["events"]))
         self.assertEqual(out["status"], "abstain")
 
+    def test_citation_repair_turn(self):
+        llm = MockLLM([tool("search_report", query="bonds"), {"content": "US$2,364.4 billion."},
+                       {"content": "US$2,364.4 billion [p028-table-1-row07]."}])
+        class RowRetriever(MockRetriever):
+            def search(self, query, *, filters=None, top_k=3):
+                r = super().search(query)[0]
+                return [{**r, "id": "p028-table-1-row07", "kind": "table_row"}]
+        out = A.run_agent("q", llm, RowRetriever(), A.Context(), citation_retry=True)
+        self.assertEqual(out["status"], "answered")
+        self.assertEqual(out["citations"], ["p028-table-1-row07"])
+        self.assertTrue(any(e["event"] == "citation_retry" for e in out["events"]))
+        # without the option the first uncited answer stands (abstain by rule)
+        llm2 = MockLLM([tool("search_report", query="bonds"), {"content": "US$2,364.4 billion."}])
+        self.assertEqual(A.run_agent("q", llm2, MockRetriever(), A.Context())["abstain_reason"], "no_citation")
+
     def test_model_error_is_recorded_not_hidden(self):
         class Boom:
             def chat(self, *_):

@@ -1,0 +1,2 @@
+{"name": "c0_dense", "retriever": {"method": "dense"}, "top_k": 5, "max_searches": 3, "budget": 7000, "view_page": false, "citation_retry": true,
+ "note": "v3: v2 + profile cards mark legend-named segments, guide page p136 read by columns (dev v2 ad04, ad05)"}

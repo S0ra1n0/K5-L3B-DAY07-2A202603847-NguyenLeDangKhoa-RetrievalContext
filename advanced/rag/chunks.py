@@ -6,7 +6,8 @@ kinds
            paragraph groups of <= MAX_CHARS. Box text is ordinary text.
   figure   one per figure region: caption title + the words printed inside the figure (labels, data labels,
            axis ticks) + the vision-model description (marked as model-generated; '~' = approximate reading).
-  table    one per table: the parsed table as Markdown (cells as printed) + parser notes (source typos).
+  table    one per table: row list + the parsed table as Markdown (cells as printed) + parser notes (source typos).
+  table_row one per table row: table title, unit, row path in the hierarchy, values by year (added after dev v1).
   profile  one per country/aggregate profile page: a card rendered from the layout parse (profiles.jsonl):
            header tags, total, Figure 2 creditor blocks, Figure 3 ratios, Figure 4 terms, unit.
 Chunk ids are readable and stable: p028-table-1, p030-figure-1, p260-profile, p019-text-2.
@@ -24,6 +25,7 @@ INDEX = ROOT / "advanced" / "data" / "index"
 CHUNKS = INDEX / "chunks.jsonl"
 MAX_CHARS = 1200
 MAX_DESC, MAX_WORDS = 1800, 900  # caps for figure chunks (one scatter-plot description was 11k chars)
+GUIDE_SPLIT_X, GUIDE_SPLIT_Y = 316, 392  # p136 layout (points): left text column | sample page; full width below
 SOURCE_ID = "idr-2026"
 
 
@@ -74,13 +76,34 @@ def _split_paragraphs(text: str) -> list[str]:
     return out
 
 
+def _table_row_chunks(cid: str, pg: int, label: str, r: dict, tab: dict) -> list[dict]:
+    """One small chunk per table row (added after dev v1: the number-only Markdown table was never retrieved -
+    BM25 length penalty, weak embedding). Each row names the table, unit, row path and every year's value as printed."""
+    out, stack = [], []
+    for k, row in enumerate(tab["rows"], 1):
+        while stack and stack[-1][0] >= row["level"]:
+            stack.pop()
+        path = " > ".join([s[1] for s in stack] + [row["row"]])
+        stack.append((row["level"], row["row"]))
+        vals = "; ".join(f"{y}: {v}" for y, v in zip(tab["years"], row["raw"]))
+        notes = [i for i in tab["issues"] if i.startswith(repr(row["row"]))]
+        text = (f"{r['title']} ({tab['unit']}). Row: {path}" + (f" [{row['section']}]" if row["section"] else "")
+                + f". Values by year as printed: {vals}." + (" Note: " + " ".join(notes) if notes else ""))
+        out.append(_chunk(f"{cid}-row{k:02d}", "table_row", pg, label, text, region=r["id"], bbox=r["bbox"],
+                          title=f"{r['title']} - {row['row']}"))
+    return out
+
+
 def _profile_card(p: dict) -> str:
     name = p["entity"].title().replace("And ", "and ").replace("Of", "of").replace("’S", "’s")
     lines = [f"{name}: country/aggregate profile page ({p['entity']}). {p['unit']}.", f"Tags: {p['header']}",
              f"TOTAL EXTERNAL DEBT STOCK, 2025: {p['total_external_debt_2025']} ({p['change_from_2024']}).",
              "Figure 2 External debt by creditor and creditor type in 2025 (block diagram):"]
     for sec, v in p["figure2"].items():
-        items = "; ".join(f"{k} {val if val is not None else '(value not printed)'}" for k, val in v["items"].items())
+        place = v.get("placement", {})
+        items = "; ".join(f"{k} {val if val is not None else '(value not printed)'}"
+                          + (f" [{place[k]}]" if place.get(k, "labelled block") != "labelled block" else "")
+                          for k, val in v["items"].items())
         lines.append(f"- {sec} {v['total']}: {items}")
     if p["figure3_ratios_2025"]:
         lines.append("Figure 3 Debt ratios, 2025 value (change): " + "; ".join(
@@ -131,7 +154,21 @@ def build_chunks() -> list[dict]:
                 cid = f"p{pg:03d}-{r['kind']}-{counters[r['kind']]}"
                 if r["kind"] == "table":
                     md = (PROC / "tables" / f"{r['id']}.md").read_text(encoding="utf-8")
-                    chunks.append(_chunk(cid, "table", pg, label, md, region=r["id"], bbox=r["bbox"], title=r["title"]))
+                    tab = json.loads((PROC / "tables" / f"{r['id']}.json").read_text(encoding="utf-8"))
+                    rows_line = "Rows: " + "; ".join(x["row"] for x in tab["rows"]) + f". Columns: years {tab['years'][0]}-{tab['years'][-1]}."
+                    chunks.append(_chunk(cid, "table", pg, label, f"{rows_line}\n{md}", region=r["id"], bbox=r["bbox"],
+                                         title=r["title"]))
+                    chunks += _table_row_chunks(cid, pg, label, r, tab)
+                elif r["id"].startswith("guide_"):
+                    # annotated guide page: explanations in the left column + full-width bottom part, read in
+                    # reading order (the raw text layer interleaves them with the miniature sample page; dev v2 ad04)
+                    pgobj = pdf.pages[pg - 1]
+                    left = pgobj.crop((0, 100, GUIDE_SPLIT_X, GUIDE_SPLIT_Y)).extract_text() or ""
+                    bottom = pgobj.crop((0, GUIDE_SPLIT_Y, pgobj.width, pgobj.height)).extract_text() or ""
+                    body = (f"{r['title']} (annotated layout of every profile page; the right side shows a miniature "
+                            f"sample page for Belize)\n{_join([l for l in left.splitlines() if l.strip()])}\n"
+                            f"{_join([l for l in bottom.splitlines() if l.strip()])}")
+                    chunks.append(_chunk(cid, "figure", pg, label, body, region=r["id"], bbox=r["bbox"], title=r["title"]))
                 else:
                     f = figs.get(r["id"], {})
                     desc = f.get("description") or "(no model description)"

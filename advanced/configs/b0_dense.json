@@ -1,0 +1,2 @@
+{"name": "b0_dense", "retriever": {"method": "dense"}, "top_k": 5, "max_searches": 3, "budget": 7000, "view_page": false, "citation_retry": true,
+ "note": "v2 (after dev v1 error analysis): index with table_row chunks; prompt rule 8 (creditor vs debtor); one citation-repair turn"}

@@ -1,0 +1,37 @@
+{
+ "labeler": "Claude (AI), read each answer against the gold evidence and the PDF; human check pending",
+ "date": "2026-11-16",
+ "runs": "advanced/results/runs/{b0_dense,b1_hybrid,b2_rerank}_dev.jsonl (index v2: + table_row chunks; agent: rule 8 creditor vs debtor, one citation-repair turn)",
+ "rules": "same as dev_labels_v1.json",
+ "labels": {
+  "ad01": {"b0_dense": "pass", "b1_hybrid": "pass", "b2_rerank": "pass", "reason": "2,364.4 bn [p028-table-1-row09] (Bonds row)."},
+  "ad02": {"b0_dense": "pass", "b1_hybrid": "pass", "b2_rerank": "pass", "reason": "15.2 bn [p063-table-1-row07] (IMF row)."},
+  "ad03": {"b0_dense": "pass", "b1_hybrid": "pass", "b2_rerank": "pass", "reason": "1,519.1 -> 2,424.1, +905.0 bn [p028-table-1-row11]."},
+  "ad04": {"b0_dense": "fail", "b1_hybrid": "fail", "b2_rerank": "pass",
+           "reason": "b0/b1 abstained (guide page text is two interleaved columns; b1 had the page in context). b2 correct via the appendix note p269."},
+  "ad05": {"b0_dense": "pass", "b1_hybrid": "fail", "b2_rerank": "fail",
+           "reason": "b0: China 1,644 [p187-profile]. b1/b2 said India also has its own block: the profile card lists legend-only items like blocks."},
+  "ad06": {"b0_dense": "pass", "b1_hybrid": "pass", "b2_rerank": "pass", "reason": "Japan 40 bn [p138-profile]."},
+  "ad07": {"b0_dense": "pass", "b1_hybrid": "pass", "b2_rerank": "pass", "reason": "Mexico 17,618 million [p072-figure-1]."},
+  "ad08": {"b0_dense": "pass", "b1_hybrid": "pass", "b2_rerank": "pass", "reason": "2020, ~13% [p111-figure-1, p110-text-2]."},
+  "ad09": {"b0_dense": "pass", "b1_hybrid": "pass", "b2_rerank": "pass",
+           "reason": "Türkiye, mostly PNG (~45 bn), ~64 bn net total, now cited [p046-figure-1] (citation repair). ~64 accepted: net of the ~-5 bn short-term segment."},
+  "ad10": {"b0_dense": "pass", "b1_hybrid": "fail", "b2_rerank": "fail",
+           "reason": "b0: 8,949.6 -> 9,445.0 = +495.4 bn = 5.53%, confirms 5.5% [p028-table-1-row01] (the 5.5% claim is given in the question). b1 invented 480 bn from mixed MIC/LIC figures; b2 used rounded trillions (500 bn) from text and did not get the table."},
+  "ad11": {"b0_dense": "pass", "b1_hybrid": "pass", "b2_rerank": "pass", "reason": "25 [p070-text-1]; 38,837 million [p187-profile]."},
+  "ad12": {"b0_dense": "pass", "b1_hybrid": "pass", "b2_rerank": "pass", "reason": "25 = 54 - 29 [p109 text and/or Figure 3.1]."},
+  "ad13": {"b0_dense": "pass", "b1_hybrid": "pass", "b2_rerank": "pass", "reason": "1.2 bn, one year, 198% [p032-text-2]."},
+  "ad14": {"b0_dense": "pass", "b1_hybrid": "pass", "b2_rerank": "pass", "reason": "5.5% from 5.8% [p051-text-1] (valid alternative evidence)."},
+  "ad15": {"b0_dense": "pass", "b1_hybrid": "pass", "b2_rerank": "pass", "reason": "887, 60% [p108-text-1]."},
+  "au01": {"b0_dense": "pass", "b1_hybrid": "pass", "b2_rerank": "pass", "reason": "Abstained."},
+  "au02": {"b0_dense": "pass", "b1_hybrid": "pass", "b2_rerank": "pass", "reason": "Abstained."},
+  "au03": {"b0_dense": "pass", "b1_hybrid": "pass", "b2_rerank": "pass",
+           "reason": "b0/b1 abstained. b2 stated the report does not contain Russia's own debt, only debt owed to Russia, citing profiles - a clear 'not in the document' with only supported claims (automatic status says 'answered' because it cites; label by reading = pass)."}
+ },
+ "summary": {"b0_dense": "17/18", "b1_hybrid": "15/18", "b2_rerank": "16/18"},
+ "remaining_failure_causes": {
+  "legend_only_items_look_like_blocks": "ad05 (b1, b2): profile card does not distinguish blocks from legend-only items.",
+  "two_column_guide_page": "ad04 (b0, b1): guide page p136 text interleaves its two columns.",
+  "table_not_reached_for_multihop": "ad10 (b1, b2): query '5.5 percent ... Table 1.1' ranks the table rows ~11 in hybrid; the model then used rounded text values."
+ }
+}

@@ -1,5 +1,5 @@
 {
- "fingerprint": "786c571f1e72f1fa3b05eb673f1ae504725225376b0fdea755021e724ea20030",
+ "fingerprint": "a956671f59f5f27babfa4b811e3b3c9e83c5e8d2aa4b3f342fed9b6a192eaa3a",
  "model": {
   "provider": "local (sentence-transformers)",
   "model": "intfloat/multilingual-e5-base",
@@ -19,7 +19,7 @@
   },
   "cost_usd": 0.0
  },
- "chunks": 526,
+ "chunks": 552,
  "truncated_over_512_tokens": [
   "p028-table-1",
   "p041-figure-1",
