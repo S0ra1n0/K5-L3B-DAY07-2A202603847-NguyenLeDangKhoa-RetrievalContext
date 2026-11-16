@@ -1,0 +1,47 @@
+{
+  "config": "rerank_hybrid_nofilter",
+  "description": "Diagnostic: I1 / M4: hybrid top-20 reranked by bge-reranker-v2-m3 (CPU), NO filter (no filter at all)",
+  "split": "dev",
+  "benchmark_commit": "bab4836",
+  "retriever": {
+    "method": "rerank",
+    "candidates": 20,
+    "base": {
+      "method": "hybrid",
+      "tokenizer": "syllable",
+      "candidates": 20,
+      "rrf_k": 60
+    }
+  },
+  "context": {
+    "top_k": 3,
+    "budget_chars": 3000,
+    "expand_parts": false
+  },
+  "filter_source": "none",
+  "questions": 23,
+  "answerable_N": 20,
+  "errors": [],
+  "hit@1": {
+    "n": 18,
+    "N": 20,
+    "rate": 0.9
+  },
+  "evidence_hit@3": {
+    "n": 20,
+    "N": 20,
+    "rate": 1.0
+  },
+  "context_evidence_rate": {
+    "n": 20,
+    "N": 20,
+    "rate": 1.0
+  },
+  "mrr@10": 0.95,
+  "avg_context_chars": 2263.9,
+  "median_latency_ms": 10623.5,
+  "setup_seconds": 2.6,
+  "service_cost_usd": 0.0,
+  "missed_ids": [],
+  "context_missed_ids": []
+}

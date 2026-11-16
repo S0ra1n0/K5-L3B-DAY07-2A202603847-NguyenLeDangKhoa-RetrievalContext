@@ -1,0 +1,47 @@
+{
+  "config": "hybrid_rrf_nofilter",
+  "description": "Diagnostic: M3 hybrid: RRF(k=60) of dense top-20 + BM25 syllable top-20, NO filter (no filter at all)",
+  "split": "dev",
+  "benchmark_commit": "bab4836",
+  "retriever": {
+    "method": "hybrid",
+    "tokenizer": "syllable",
+    "candidates": 20,
+    "rrf_k": 60
+  },
+  "context": {
+    "top_k": 3,
+    "budget_chars": 3000,
+    "expand_parts": false
+  },
+  "filter_source": "none",
+  "questions": 23,
+  "answerable_N": 20,
+  "errors": [],
+  "hit@1": {
+    "n": 17,
+    "N": 20,
+    "rate": 0.85
+  },
+  "evidence_hit@3": {
+    "n": 19,
+    "N": 20,
+    "rate": 0.95
+  },
+  "context_evidence_rate": {
+    "n": 19,
+    "N": 20,
+    "rate": 0.95
+  },
+  "mrr@10": 0.9083,
+  "avg_context_chars": 2272.9,
+  "median_latency_ms": 66.6,
+  "setup_seconds": 0.05,
+  "service_cost_usd": 0.0,
+  "missed_ids": [
+    "q16"
+  ],
+  "context_missed_ids": [
+    "q16"
+  ]
+}

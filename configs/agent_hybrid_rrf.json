@@ -1,0 +1,9 @@
+{
+  "name": "agent_hybrid_rrf",
+  "description": "Agent over M3 hybrid RRF (dense top-20 + BM25 syllable top-20), 3 chunks per search, up to 3 searches, 3000-char context",
+  "retriever": {"method": "hybrid", "tokenizer": "syllable", "candidates": 20, "rrf_k": 60},
+  "context": {"budget_chars": 3000, "expand_parts": false},
+  "search_top_k": 3,
+  "max_searches": 3,
+  "filter_policy": "user_or_inferred"
+}

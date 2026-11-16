@@ -80,6 +80,19 @@ class AgentTests(unittest.TestCase):
         self.assertEqual(out["events"][0]["filter"], {"year": 2019})
         self.assertEqual(out["events"][0]["filter_source"], "user")
 
+    def test_grouped_citations_are_parsed_and_checked(self):
+        from src.agent import classify_answer, parse_citations
+        a, b = "a" * 16, "b" * 16
+        self.assertEqual(parse_citations(f"x [{a}, {b}] y [{a}]"), [a, b])
+        self.assertEqual(classify_answer(f"x [{a}, {'f' * 16}]", [a])[0], "abstain")      # grouped invalid id caught
+        self.assertEqual(classify_answer(f"x [{a}, {b}]", [a, b])[:2], ("answered", [a, b]))
+
+    def test_inferred_only_ignores_user_filter(self):
+        llm = FakeLLM([search("x", 2012), {"role": "assistant", "content": f"ok [{'b' * 16}]"}])
+        out = run_agent({"question": "q", "filter": {"year": 2019}}, llm, Fixed("r", CHUNKS), self.builder,
+                        filter_policy="inferred_only")
+        self.assertEqual((out["events"][0]["filter"], out["events"][0]["filter_source"]), ({"year": 2012}, "inferred"))
+
     def test_inferred_filter_and_invalid_citation_abstains(self):
         llm = FakeLLM([search("x", 2012), {"role": "assistant", "content": "30 giờ [ffffffffffffffff]"}])
         out = run_agent({"question": "q"}, llm, Fixed("r", CHUNKS[:1]), self.builder)

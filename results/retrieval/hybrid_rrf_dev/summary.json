@@ -1,0 +1,43 @@
+{
+  "config": "hybrid_rrf",
+  "description": "M3 hybrid: RRF(k=60) of dense top-20 + BM25 syllable top-20, user filter",
+  "split": "dev",
+  "benchmark_commit": "bab4836",
+  "retriever": {
+    "method": "hybrid",
+    "tokenizer": "syllable",
+    "candidates": 20,
+    "rrf_k": 60
+  },
+  "context": {
+    "top_k": 3,
+    "budget_chars": 3000,
+    "expand_parts": false
+  },
+  "filter_source": "user",
+  "questions": 23,
+  "answerable_N": 20,
+  "errors": [],
+  "hit@1": {
+    "n": 19,
+    "N": 20,
+    "rate": 0.95
+  },
+  "evidence_hit@3": {
+    "n": 20,
+    "N": 20,
+    "rate": 1.0
+  },
+  "context_evidence_rate": {
+    "n": 20,
+    "N": 20,
+    "rate": 1.0
+  },
+  "mrr@10": 0.975,
+  "avg_context_chars": 2315,
+  "median_latency_ms": 66.6,
+  "setup_seconds": 0.0,
+  "service_cost_usd": 0.0,
+  "missed_ids": [],
+  "context_missed_ids": []
+}

@@ -1,0 +1,9 @@
+{
+  "name": "agent_rerank_hybrid",
+  "description": "I1: agent over hybrid top-20 reranked by bge-reranker-v2-m3 (CPU), 3 chunks per search, up to 3 searches, 3000-char context",
+  "retriever": {"method": "rerank", "candidates": 20, "base": {"method": "hybrid", "tokenizer": "syllable", "candidates": 20, "rrf_k": 60}},
+  "context": {"budget_chars": 3000, "expand_parts": false},
+  "search_top_k": 3,
+  "max_searches": 3,
+  "filter_policy": "user_or_inferred"
+}

@@ -1,0 +1,45 @@
+{
+  "config": "dense_k3_nofilter",
+  "description": "Diagnostic: M1 baseline: dense e5 + pgvector (Day 6 config C), NO filter, top-3 context, 3000 chars (no filter at all)",
+  "split": "dev",
+  "benchmark_commit": "bab4836",
+  "retriever": {
+    "method": "dense"
+  },
+  "context": {
+    "top_k": 3,
+    "budget_chars": 3000,
+    "expand_parts": false
+  },
+  "filter_source": "none",
+  "questions": 23,
+  "answerable_N": 20,
+  "errors": [],
+  "hit@1": {
+    "n": 14,
+    "N": 20,
+    "rate": 0.7
+  },
+  "evidence_hit@3": {
+    "n": 19,
+    "N": 20,
+    "rate": 0.95
+  },
+  "context_evidence_rate": {
+    "n": 18,
+    "N": 20,
+    "rate": 0.9
+  },
+  "mrr@10": 0.8208,
+  "avg_context_chars": 2187.1,
+  "median_latency_ms": 65.9,
+  "setup_seconds": 12.93,
+  "service_cost_usd": 0.0,
+  "missed_ids": [
+    "q08"
+  ],
+  "context_missed_ids": [
+    "q08",
+    "q16"
+  ]
+}

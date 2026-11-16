@@ -1,0 +1,9 @@
+{
+  "name": "agent_dense_inferred",
+  "description": "I3: same as baseline agent_dense_k3 but the benchmark (user) filter is IGNORED; only the year the model infers from the question is applied",
+  "retriever": {"method": "dense"},
+  "context": {"budget_chars": 3000, "expand_parts": false},
+  "search_top_k": 3,
+  "max_searches": 3,
+  "filter_policy": "inferred_only"
+}

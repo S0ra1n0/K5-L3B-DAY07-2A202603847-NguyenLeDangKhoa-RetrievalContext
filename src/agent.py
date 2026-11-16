@@ -1,7 +1,10 @@
 """Agentic RAG loop: the model decides when and what to search, then answers with citations or abstains.
 
-- Tool: search_law(query, year?). A user-provided filter (benchmark `filter`) is always enforced;
-  otherwise the model's `year` argument is used and logged as filter_source = "inferred".
+- Tool: search_law(query, year?). filter_policy:
+  "user_or_inferred" (default): a user-provided filter (benchmark `filter`) is enforced; otherwise the
+  model's `year` argument is used and logged as filter_source = "inferred".
+  "inferred_only" (experiment I3): the user filter is ignored; only the model's own `year` is used.
+  "none": no filter at all.
 - Context: candidates from all searches, in search order, go through ContextBuilder (dedup, optional
   part expansion, char budget). Only the latest cumulative context is kept in the conversation;
   older tool messages are replaced by a short note so the budget is not multiplied.
@@ -43,7 +46,25 @@ TOOLS = [{"type": "function", "function": {
         "required": ["query"]}}}]
 
 ABSTAIN_PATTERN = re.compile(r"không\s+đủ\s+(bằng\s+chứng|thông\s+tin|căn\s+cứ)", re.IGNORECASE)
-CITATION_PATTERN = re.compile(r"\[([0-9a-f]{16})\]")
+CITATION_PATTERN = re.compile(r"\[([0-9a-f]{16}(?:\s*[,;]\s*[0-9a-f]{16})*)\]")  # [id] or grouped [id, id]
+
+
+def parse_citations(answer: str) -> list[str]:
+    """Cited chunk IDs in order of first appearance; accepts grouped brackets like [id1, id2]."""
+    ids = [i for group in CITATION_PATTERN.findall(answer) for i in re.split(r"\s*[,;]\s*", group)]
+    return list(dict.fromkeys(ids))
+
+
+def classify_answer(answer: str, context_ids: list[str]) -> tuple[str, list[str], str | None, list[str], list[str]]:
+    """Return (status, citations, abstain_reason, cited, invalid) for a final answer."""
+    cited = parse_citations(answer)
+    in_ctx = set(context_ids)
+    invalid = [c for c in cited if c not in in_ctx]
+    if ABSTAIN_PATTERN.search(answer):
+        return "abstain", [], "says_not_enough_evidence", cited, invalid
+    if not cited or invalid:
+        return "abstain", [], ("invalid_citations" if invalid else "no_citation"), cited, invalid
+    return "answered", cited, None, cited, invalid
 OLD_TOOL_NOTE = "(Kết quả lượt này đã được gộp vào kết quả tìm kiếm mới nhất bên dưới.)"
 
 
@@ -82,9 +103,9 @@ def run_agent(view: dict[str, Any], llm, retriever, builder: ContextBuilder, *, 
                         continue
                     if filter_policy == "none":
                         filters, source = None, "none"
-                    elif user_filter:
+                    elif user_filter and filter_policy != "inferred_only":
                         filters, source = dict(user_filter), "user"
-                    elif filter_policy == "user_or_inferred" and args.get("year") in (2012, 2019):
+                    elif filter_policy in ("user_or_inferred", "inferred_only") and args.get("year") in (2012, 2019):
                         filters, source = {"year": int(args["year"])}, "inferred"
                     else:
                         filters, source = None, "none"
@@ -123,15 +144,7 @@ def run_agent(view: dict[str, Any], llm, retriever, builder: ContextBuilder, *, 
                 "searches": searches, "seconds": round(time.perf_counter() - started, 2)}
     if searches >= max_searches and not any(e["event"] == "search_limit" for e in events):
         events.append({"event": "search_limit_reached"})
-    cited = list(dict.fromkeys(CITATION_PATTERN.findall(answer)))
-    in_ctx = set(ctx["context_ids"])
-    invalid = [c for c in cited if c not in in_ctx]
-    says_abstain = bool(ABSTAIN_PATTERN.search(answer))
-    if says_abstain or not cited or invalid:
-        status, citations = "abstain", []
-        reason = "says_not_enough_evidence" if says_abstain else ("invalid_citations" if invalid else "no_citation")
-    else:
-        status, citations, reason = "answered", cited, None
+    status, citations, reason, cited, invalid = classify_answer(answer, ctx["context_ids"])
     events.append({"event": "answer", "status": status, "abstain_reason": reason, "cited": cited, "invalid_citations": invalid})
     return {"status": status, "answer": answer, "citations": citations, "abstain_reason": reason, "events": events,
             "final_context_ids": ctx["context_ids"], "final_context": ctx["context"], "final_context_chars": ctx.get("chars", 0),

@@ -1,0 +1,40 @@
+{
+  "config": "dense_k3",
+  "description": "M1 baseline: dense e5 + pgvector (Day 6 config C), user filter, top-3 context, 3000 chars",
+  "split": "dev",
+  "benchmark_commit": "bab4836",
+  "retriever": {
+    "method": "dense"
+  },
+  "context": {
+    "top_k": 3,
+    "budget_chars": 3000,
+    "expand_parts": false
+  },
+  "filter_source": "user",
+  "questions": 23,
+  "answerable_N": 20,
+  "errors": [],
+  "hit@1": {
+    "n": 16,
+    "N": 20,
+    "rate": 0.8
+  },
+  "evidence_hit@3": {
+    "n": 20,
+    "N": 20,
+    "rate": 1.0
+  },
+  "context_evidence_rate": {
+    "n": 20,
+    "N": 20,
+    "rate": 1.0
+  },
+  "mrr@10": 0.8917,
+  "avg_context_chars": 2267.9,
+  "median_latency_ms": 63.0,
+  "setup_seconds": 25.84,
+  "service_cost_usd": 0.0,
+  "missed_ids": [],
+  "context_missed_ids": []
+}

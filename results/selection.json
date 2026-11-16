@@ -1,0 +1,19 @@
+{
+  "selected": "agent_rerank_hybrid",
+  "baseline_for_test": "agent_dense_k3",
+  "confirmed_by_student": true,
+  "decided_at": "2026-11-16",
+  "based_on": "dev only (20 answerable + 3 unanswerable); test not opened",
+  "benchmark_commit": "bab4836",
+  "criteria_file": "benchmark/selection_criteria.md (committed with the benchmark before any run)",
+  "decisive_criterion": "1. Context Evidence Rate of the final context sent to the model: rerank 20/20 vs dense 18/20, inferred 18/20, hybrid 17/20 (difference 2 questions > tie threshold of 1). This criterion does not depend on manual labels.",
+  "robustness_note": "If criterion 1 is read as retrieval-only Context Evidence with the original query, all configs tie at 20/20; criterion 2 (grounded mean) then gives rerank 2.00 vs dense 1.80 (2 questions), same choice. Grounded labels at decision time were AI drafts.",
+  "ranking": [
+    {"config": "agent_rerank_hybrid", "context_evidence": "20/20", "grounded_mean": 2.0, "false_abstention": "0/20", "abstention": "2/3", "evidence_hit@3_retrieval": "20/20", "median_seconds": 15.26},
+    {"config": "agent_dense_k3", "context_evidence": "18/20", "grounded_mean": 1.8, "false_abstention": "0/20", "abstention": "2/3", "evidence_hit@3_retrieval": "20/20", "median_seconds": 4.12},
+    {"config": "agent_dense_inferred", "context_evidence": "18/20", "grounded_mean": 1.8, "false_abstention": "0/20", "abstention": "2/3", "evidence_hit@3_retrieval": "20/20", "median_seconds": 7.21},
+    {"config": "agent_hybrid_rrf", "context_evidence": "17/20", "grounded_mean": 1.7, "false_abstention": "0/20", "abstention": "3/3", "evidence_hit@3_retrieval": "20/20", "median_seconds": 5.76}
+  ],
+  "trade_off": "rerank is about 3.7x slower per question (15.3 s vs 4.1 s; reranker on CPU, about 10.8 s per search). Cost 0 USD for all (local models).",
+  "test_plan": "Run agent_dense_k3 and agent_rerank_hybrid once on test (t01-t11); retrieval eval of dense_k3 and rerank_hybrid once on test."
+}

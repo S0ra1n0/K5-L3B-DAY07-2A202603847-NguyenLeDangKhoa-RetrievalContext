@@ -1,0 +1,41 @@
+{
+  "config": "bm25_syllable",
+  "description": "M2a lexical: BM25, syllable tokens, user filter",
+  "split": "dev",
+  "benchmark_commit": "bab4836",
+  "retriever": {
+    "method": "bm25",
+    "tokenizer": "syllable"
+  },
+  "context": {
+    "top_k": 3,
+    "budget_chars": 3000,
+    "expand_parts": false
+  },
+  "filter_source": "user",
+  "questions": 23,
+  "answerable_N": 20,
+  "errors": [],
+  "hit@1": {
+    "n": 17,
+    "N": 20,
+    "rate": 0.85
+  },
+  "evidence_hit@3": {
+    "n": 20,
+    "N": 20,
+    "rate": 1.0
+  },
+  "context_evidence_rate": {
+    "n": 20,
+    "N": 20,
+    "rate": 1.0
+  },
+  "mrr@10": 0.925,
+  "avg_context_chars": 2346.7,
+  "median_latency_ms": 2.6,
+  "setup_seconds": 0.06,
+  "service_cost_usd": 0.0,
+  "missed_ids": [],
+  "context_missed_ids": []
+}

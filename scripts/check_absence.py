@@ -50,6 +50,10 @@ def main():
         report.append(entry)
     out = ROOT / "results" / "setup" / "absence_check.json"
     out.parent.mkdir(parents=True, exist_ok=True)
+    if args.id and out.exists():  # merge: a single-question run must not drop the other questions' evidence
+        kept = [e for e in json.loads(out.read_text(encoding="utf-8")) if e["id"] != args.id]
+        order = [q["id"] for q in load_benchmark() if not q["answerable"]]
+        report = sorted(kept + report, key=lambda e: order.index(e["id"]) if e["id"] in order else 99)
     out.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 

@@ -1,0 +1,41 @@
+{
+  "config": "bm25_pyvi",
+  "description": "M2b lexical: BM25, pyvi word segmentation, user filter",
+  "split": "dev",
+  "benchmark_commit": "bab4836",
+  "retriever": {
+    "method": "bm25",
+    "tokenizer": "pyvi"
+  },
+  "context": {
+    "top_k": 3,
+    "budget_chars": 3000,
+    "expand_parts": false
+  },
+  "filter_source": "user",
+  "questions": 23,
+  "answerable_N": 20,
+  "errors": [],
+  "hit@1": {
+    "n": 18,
+    "N": 20,
+    "rate": 0.9
+  },
+  "evidence_hit@3": {
+    "n": 20,
+    "N": 20,
+    "rate": 1.0
+  },
+  "context_evidence_rate": {
+    "n": 20,
+    "N": 20,
+    "rate": 1.0
+  },
+  "mrr@10": 0.95,
+  "avg_context_chars": 2363.2,
+  "median_latency_ms": 2.3,
+  "setup_seconds": 0.95,
+  "service_cost_usd": 0.0,
+  "missed_ids": [],
+  "context_missed_ids": []
+}
