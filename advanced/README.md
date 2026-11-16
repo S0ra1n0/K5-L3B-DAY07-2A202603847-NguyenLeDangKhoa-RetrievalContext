@@ -132,3 +132,9 @@ Ghi rõ nguồn và điều kiện sử dụng trong `source.json`. Nếu giấy
 **Đã chạy thử** (chỉ với câu hỏi **ngoài** benchmark): Ukraine (+29,2%, 250,3 tỷ USD) đúng; Bangladesh 113.438 triệu USD đúng; câu về dự báo GDP Brazil 2027 thì từ chối đúng.
 
 **Vấn đề đã thấy:** với câu khó (so sánh hai số âm), model "nghĩ thành tiếng" dài, và câu đầu mâu thuẫn với kết luận. Cần xem lỗi này phổ biến đến đâu trên dev.
+
+## Phạm vi index và kiểm thử
+
+- **Những gì đã và chưa index**, lý do và ảnh hưởng tới câu hỏi: [results/index_coverage.md](results/index_coverage.md).
+- **Unit test offline** (`tests/test_advanced.py`, 17 test, không cần model): tách số (lỗi in, dấu trừ "–"), dòng bảng, ghép ô sơ đồ hồ sơ theo hình chữ nhật và màu chú giải, nối gạch nối, đọc trích dẫn, ngân sách context, vòng agent với model giả, và các chốt chặn của `run_bench`.
+  - Chạy: `.venv/Scripts/python -X utf8 -m unittest discover -s tests -v`.

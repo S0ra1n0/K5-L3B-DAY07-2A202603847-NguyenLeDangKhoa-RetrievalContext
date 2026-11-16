@@ -36,7 +36,7 @@ docker compose -p day6_student_starter up -d --wait
 - Lần chạy đầu, `intfloat/multilingual-e5-base` và `BAAI/bge-reranker-v2-m3` được tải tự động từ HuggingFace.
 
 ```bash
-.venv/Scripts/python -X utf8 -m unittest discover -s tests -v          # 31 test offline (mock)
+.venv/Scripts/python -X utf8 -m unittest discover -s tests -v          # 48 test offline (mock; 17 test của phần nâng cao)
 .venv/Scripts/python -X utf8 scripts/check_store.py                    # kiểm tra store: 552 dòng, self-retrieval, filter
 .venv/Scripts/python -X utf8 scripts/build_benchmark.py                # sinh benchmark/questions.json
 .venv/Scripts/python -X utf8 scripts/verify_benchmark.py               # 53/53 quote đúng trang, dev/test không trùng Điều
