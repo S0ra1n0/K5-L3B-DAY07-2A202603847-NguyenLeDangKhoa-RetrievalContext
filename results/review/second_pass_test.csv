@@ -1,0 +1,23 @@
+﻿config,query_id,auto_answer_grade,auto_citation_support,auto_abstention_correct,auto_notes,ai_answer_grade,ai_citation_support,ai_abstention_correct,conflict
+agent_dense_k3,t01,2,true,,,2,true,,
+agent_dense_k3,t02,2,true;true,,,1,true;true,,answer_grade
+agent_dense_k3,t03,2,true;true,,,2,true;true,,
+agent_dense_k3,t04,2,true,,,2,true,,
+agent_dense_k3,t05,0,,,từ chối câu có đáp án,0,,,
+agent_dense_k3,t06,2,true;true,,,2,true;true,,
+agent_dense_k3,t07,2,true,,,2,true,,
+agent_dense_k3,t08,2,false,,[25405e] câu nhắc Điều ['188'] nhưng cite Điều 199,2,true,,citation_support
+agent_dense_k3,t09,,true,false,không từ chối (status answered),,true,false,
+agent_dense_k3,t10,,,false,"có con số ['1', '16', '174576', '19', '2', '407', '5', '6', '77819', '836']",,,false,
+agent_dense_k3,t11,,,true,,,,true,
+agent_rerank_hybrid,t01,2,true,,,2,true,,
+agent_rerank_hybrid,t02,1,true;true,,context cuối không đủ evidence,1,true;true,,
+agent_rerank_hybrid,t03,2,true;true,,,2,true;true,,
+agent_rerank_hybrid,t04,2,true,,,2,true,,
+agent_rerank_hybrid,t05,0,,,từ chối câu có đáp án,0,,,
+agent_rerank_hybrid,t06,2,true;false,,[f8e349] câu nhắc Điều ['116'] nhưng cite Điều 115,2,true;true,,citation_support
+agent_rerank_hybrid,t07,2,true;true,,,2,true;true,,
+agent_rerank_hybrid,t08,2,false;true,,[25405e] câu nhắc Điều ['188'] nhưng cite Điều 199,2,true;true,,citation_support
+agent_rerank_hybrid,t09,,true;true,false,không từ chối (status answered),,true;false,false,citation_support
+agent_rerank_hybrid,t10,,true,false,không từ chối (status answered); có con số ['6'],,true,false,
+agent_rerank_hybrid,t11,,,true,,,,true,
