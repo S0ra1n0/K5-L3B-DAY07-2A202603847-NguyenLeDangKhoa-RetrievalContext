@@ -1,0 +1,177 @@
+﻿{
+  "status": "abstain",
+  "answer": "Dựa trên các đoạn văn bản tìm được từ Bộ luật Lao động 2012 và 2019, nội dung cụ thể về mức phạt tiền đối với hành vi chậm đóng bảo hiểm xã hội **không được nêu trực tiếp** trong các điều luật trích dẫn (Điều 186 BLĐ 2012, Điều 168 BLĐ 2019, Điều 145 BLĐ 2012).\n\nCác điều luật này chỉ quy định về nghĩa vụ tham gia bảo hiểm và trách nhiệm trả tiền tương đương cho người lao động khi chưa đóng, nhưng không quy định về hình thức xử phạt hành chính (phạt tiền) cụ thể. Thông tin về mức phạt thường nằm trong các văn bản hướng dẫn thi hành hoặc Luật Xử lý vi phạm hành chính, không nằm trong nội dung của Bộ luật Lao động.\n\n**Không đủ bằng chứng trong Bộ luật Lao động 2012/2019 để trả lời.**",
+  "citations": [],
+  "abstain_reason": "says_not_enough_evidence",
+  "events": [
+    {
+      "event": "search",
+      "tool": "search_law",
+      "query": "phạt chậm đóng bảo hiểm xã hội",
+      "model_year_arg": null,
+      "filter": null,
+      "filter_source": "none",
+      "results": [
+        {
+          "id": "fa80fe5b82b8b3d5",
+          "rank": 1,
+          "score": 0.8566,
+          "year": 2012,
+          "article": 186,
+          "pages": [
+            52
+          ]
+        },
+        {
+          "id": "6dc7ac695eef8788",
+          "rank": 2,
+          "score": 0.8497,
+          "year": 2019,
+          "article": 168,
+          "pages": [
+            60
+          ]
+        },
+        {
+          "id": "8df19a7e83da8398",
+          "rank": 3,
+          "score": 0.8481,
+          "year": 2012,
+          "article": 145,
+          "pages": [
+            41
+          ]
+        }
+      ],
+      "context_ids": [
+        "fa80fe5b82b8b3d5",
+        "6dc7ac695eef8788",
+        "8df19a7e83da8398"
+      ],
+      "context_chars": 2925
+    },
+    {
+      "event": "search",
+      "tool": "search_law",
+      "query": "phạt chậm đóng bảo hiểm xã hội",
+      "model_year_arg": 2012,
+      "filter": {
+        "year": 2012
+      },
+      "filter_source": "inferred",
+      "results": [
+        {
+          "id": "fa80fe5b82b8b3d5",
+          "rank": 1,
+          "score": 0.8566,
+          "year": 2012,
+          "article": 186,
+          "pages": [
+            52
+          ]
+        },
+        {
+          "id": "8df19a7e83da8398",
+          "rank": 2,
+          "score": 0.8481,
+          "year": 2012,
+          "article": 145,
+          "pages": [
+            41
+          ]
+        },
+        {
+          "id": "67976ce3fa4d3293",
+          "rank": 3,
+          "score": 0.8419,
+          "year": 2012,
+          "article": 187,
+          "pages": [
+            52
+          ]
+        }
+      ],
+      "context_ids": [
+        "fa80fe5b82b8b3d5",
+        "6dc7ac695eef8788",
+        "8df19a7e83da8398"
+      ],
+      "context_chars": 2925
+    },
+    {
+      "event": "search",
+      "tool": "search_law",
+      "query": "phạt chậm đóng bảo hiểm xã hội",
+      "model_year_arg": 2019,
+      "filter": {
+        "year": 2019
+      },
+      "filter_source": "inferred",
+      "results": [
+        {
+          "id": "6dc7ac695eef8788",
+          "rank": 1,
+          "score": 0.8497,
+          "year": 2019,
+          "article": 168,
+          "pages": [
+            60
+          ]
+        },
+        {
+          "id": "652b409fad761b0a",
+          "rank": 2,
+          "score": 0.8427,
+          "year": 2019,
+          "article": 219,
+          "pages": [
+            81,
+            82
+          ]
+        },
+        {
+          "id": "e68a63281d0fd323",
+          "rank": 3,
+          "score": 0.8425,
+          "year": 2019,
+          "article": 48,
+          "pages": [
+            20
+          ]
+        }
+      ],
+      "context_ids": [
+        "fa80fe5b82b8b3d5",
+        "6dc7ac695eef8788",
+        "8df19a7e83da8398"
+      ],
+      "context_chars": 2925
+    },
+    {
+      "event": "search_limit_reached"
+    },
+    {
+      "event": "answer",
+      "status": "abstain",
+      "abstain_reason": "says_not_enough_evidence",
+      "cited": [],
+      "invalid_citations": []
+    }
+  ],
+  "final_context_ids": [
+    "fa80fe5b82b8b3d5",
+    "6dc7ac695eef8788",
+    "8df19a7e83da8398"
+  ],
+  "final_context": "[fa80fe5b82b8b3d5 | blld-2012 | năm 2012 | trang 52 | Điều 186]\nChương XII\nBẢO HIẾM XÃ HỘI\nĐiều 186. Tham gia bảo hiểm xã hội, bảo hiểm y tế\n1. Người sử dụng lao động, người lao động phải tham gia bảo hiểm xã hội bắt buộc, bảo hiểm y tế bắt buộc, bảo hiểm thất nghiệp và được hưởng các chế độ theo quy định của pháp luật về bảo hiểm xã hội và pháp luật về bảo hiểm y tế.\nKhuyến khích người sử dụng lao động, người lao động thực hiện các hình thức bảo hiểm xã hội khác đối với người lao động.\n2. Trong thời gian người lao động nghỉ việc được hưởng chế độ bảo hiểm xã hội, thì người sử dụng lao động không phải trả lương cho người lao động.\n3. Đối với người lao động không thuộc đối tượng tham gia bảo hiểm xã hội bắt buộc, bảo hiểm y tế bắt buộc, bảo hiểm thất nghiệp thì ngoài việc trả lương theo công việc, người sử dụng lao động có trách nhiệm chỉ trả thêm cùng lúc với kỳ trả lương của người lao động một khoản tiền cho người lao động tương đương với mức đóng bảo hiểm xã hội, bảo hiểm y tế bắt buộc, bảo hiểm thất nghiệp và tiền nghỉ phép hắng năm theo quy định.\n\n[6dc7ac695eef8788 | blld-2019 | năm 2019 | trang 60 | Điều 168]\nChương XII\nBẢO HIẾM XÃ HỘI, BẢO HIẾM Y TẾ, BẢO HIẾM THÁT NGHIỆP\nĐiều 168. Tham gia bảo hiểm xã hội, bảo hiểm y tế, bảo hiểm thất nghiệp\n1. Người sử dụng lao động, người lao động phải tham gia bảo hiểm xã hội bất buộc, bảo hiêm y tế, bảo hiểm thật nghiệp; người lao động được hưởng các chê độ theo quy định của pháp luật về bảo hiểm xã hội, bảo hiêm y tê và bảo hiểm thất nghiệp.\nKhuyến khích người sử dụng lao động, người lao động tham gia các hình thức bảo hiêm khác đôi với người lao động.\n2. Trong thời gian người lao động nghỉ việc hưởng chế độ bảo hiểm xã hội thì người sử dụng lao động không phải trả lương cho người lao động, trừ trường hợp hai bên có thỏa thuận khác. 3 Đối với người lao động không thuộc đối tượng tham gia bảo hiểm xã hội bắt buộc, bảo hiểm y tê, bảo hiểm thất nghiệp thì người sử dụng lao động có trách nhiệm chỉ trả thêm cùng lúc với kỳ trả lương một khoản tiền cho người lao động tương đương với mức người sử dụng lao động đóng bảo hiểm xã hội bắt buộc, bảo hiêm y tê, bảo hiêm thất nghiệp cho người lao động theo quy định của pháp luật về bảo hiểm xã hội, bảo hiểm y tế, bảo hiểm thất nghiệp.\n\n[8df19a7e83da8398 | blld-2012 | năm 2012 | trang 41 | Điều 145 | phần 1/2]\nĐiều 145. Quyền của người lao động bị tai nạn lao › động, bệnh nghề nghiệp\n1. Người lao động tham gia bảo hiểm xã hội bắt buộc được hưởng chế độ tai nạn lao động, bệnh nghề nghiệp theo quy định của Luật bảo hiểm xã hội.\n2. Người lao động thuộc đối tượng tham gia bảo hiểm xã hội bắt buộc mà người sử dụng lao động chưa đóng bảo hiểm xã hội cho cơ quan bảo hiểm xã hội, thì được người sử dụng lao động trả khoản tiền tương ứng với chế độ tai nạn lao động, bệnh nghề nghiệp theo quy định của Luật bảo hiểm xã hội.\nViệc chỉ trả có thể thực hiện một lần hoặc hằng tháng theo thỏa thuận của các bên.",
+  "final_context_chars": 2925,
+  "usage": {
+    "llm_calls": 3,
+    "prompt_tokens": 3702,
+    "output_tokens": 336,
+    "llm_seconds": 8.41229199996451,
+    "retrieval_seconds": 0.21491490007610992
+  },
+  "searches": 3,
+  "seconds": 8.63
+}

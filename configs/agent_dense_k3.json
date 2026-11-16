@@ -1,0 +1,9 @@
+{
+  "name": "agent_dense_k3",
+  "description": "Baseline agent: qwen3.5:9b + search_law over M1 dense (Day 6 config C), 3 chunks per search, up to 3 searches, 3000-char cumulative context",
+  "retriever": {"method": "dense"},
+  "context": {"budget_chars": 3000, "expand_parts": false},
+  "search_top_k": 3,
+  "max_searches": 3,
+  "filter_policy": "user_or_inferred"
+}

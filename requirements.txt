@@ -1,0 +1,15 @@
+# Day 7 · Python 3.12 (Windows). Exact versions: requirements.lock.txt.
+# Install CPU torch first:
+#   python -m pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
+torch==2.7.1
+# Same embedding stack as Day 6 (intfloat/multilingual-e5-base, 768 dims)
+sentence-transformers==4.1.0
+transformers==4.57.6
+numpy>=1.26
+# pgvector store from Day 6
+psycopg[binary]==3.3.8
+python-dotenv==1.2.4
+# Lexical retrieval and Vietnamese word segmentation
+rank-bm25==0.2.2
+pyvi==0.1.1
+# The agent calls a local Ollama server over HTTP (standard library only).

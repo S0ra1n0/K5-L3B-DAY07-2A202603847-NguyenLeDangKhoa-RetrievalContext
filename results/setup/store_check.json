@@ -1,0 +1,78 @@
+{
+  "postgres": "PostgreSQL 16.16 (Debian 16.16-1.pgdg12+1) on x86_64-pc-linux-gnu",
+  "pgvector": "0.8.7",
+  "chunk_set": "B",
+  "rows": 552,
+  "local_chunks": 552,
+  "ids_match": true,
+  "models": [
+    "intfloat/multilingual-e5-base"
+  ],
+  "dims": [
+    768
+  ],
+  "embedder": {
+    "provider": "local (sentence-transformers)",
+    "model": "intfloat/multilingual-e5-base",
+    "revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+    "dimensions": 768,
+    "max_seq_length_tokens": 512,
+    "query_prefix": "query: ",
+    "passage_prefix": "passage: ",
+    "normalized": true,
+    "similarity": "cosine",
+    "device": "cpu",
+    "batch_size": 32,
+    "versions": {
+      "sentence_transformers": "4.1.0",
+      "transformers": "4.57.6",
+      "torch": "2.7.1+cpu"
+    },
+    "cost_usd": 0.0
+  },
+  "self_retrieval": {
+    "n": 5,
+    "N": 5,
+    "probes": [
+      {
+        "chunk_id": "846f5c899c0d44e3",
+        "top1": "846f5c899c0d44e3",
+        "self_at_1": true
+      },
+      {
+        "chunk_id": "5ec6498092d00f9e",
+        "top1": "5ec6498092d00f9e",
+        "self_at_1": true
+      },
+      {
+        "chunk_id": "868785708d241fa9",
+        "top1": "868785708d241fa9",
+        "self_at_1": true
+      },
+      {
+        "chunk_id": "f8097e0a7bdcadcf",
+        "top1": "f8097e0a7bdcadcf",
+        "self_at_1": true
+      },
+      {
+        "chunk_id": "57bb4429a280a09d",
+        "top1": "57bb4429a280a09d",
+        "self_at_1": true
+      }
+    ]
+  },
+  "query_latency_ms_median": 107.9,
+  "year_filter": {
+    "2012": [
+      2012
+    ],
+    "2019": [
+      2019
+    ]
+  },
+  "machine": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "ok": true
+}

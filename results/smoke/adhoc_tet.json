@@ -1,0 +1,84 @@
+﻿{
+  "status": "answered",
+  "answer": "Theo Bộ luật Lao động 2019, người lao động được nghỉ Tết Âm lịch 05 ngày, hưởng nguyên lương [70c23213ef936eb5].",
+  "citations": [
+    "70c23213ef936eb5"
+  ],
+  "abstain_reason": null,
+  "events": [
+    {
+      "event": "search",
+      "tool": "search_law",
+      "query": "nghỉ Tết Âm lịch người lao động",
+      "model_year_arg": 2019,
+      "filter": {
+        "year": 2019
+      },
+      "filter_source": "inferred",
+      "results": [
+        {
+          "id": "70c23213ef936eb5",
+          "rank": 1,
+          "score": 0.8983,
+          "year": 2019,
+          "article": 112,
+          "pages": [
+            41,
+            42
+          ]
+        },
+        {
+          "id": "3fe27b9fd53b4099",
+          "rank": 2,
+          "score": 0.8653,
+          "year": 2019,
+          "article": 113,
+          "pages": [
+            42
+          ]
+        },
+        {
+          "id": "99042463a7e0e2f3",
+          "rank": 3,
+          "score": 0.8652,
+          "year": 2019,
+          "article": 113,
+          "pages": [
+            42
+          ]
+        }
+      ],
+      "context_ids": [
+        "70c23213ef936eb5",
+        "3fe27b9fd53b4099",
+        "99042463a7e0e2f3"
+      ],
+      "context_chars": 2610
+    },
+    {
+      "event": "answer",
+      "status": "answered",
+      "abstain_reason": null,
+      "cited": [
+        "70c23213ef936eb5"
+      ],
+      "invalid_citations": []
+    }
+  ],
+  "final_context_ids": [
+    "70c23213ef936eb5",
+    "3fe27b9fd53b4099",
+    "99042463a7e0e2f3"
+  ],
+  "final_context": "[70c23213ef936eb5 | blld-2019 | năm 2019 | trang 41-42 | Điều 112]\nĐiều 112. Nghỉ lễ, tết\n1. Người lao động được nghỉ làm việc, hưởng nguyên lương trong những ngày lỗ, tết sau đây:\na) Tết Dương lịch: 01 ngày (ngày 01 tháng 01 đương lịch);\nb) Tết Âm lịch: 05 ngày;\nc) Ngày Chiến thắng: 01 ngày (ngày 30 tháng 4 dương lịch);\nd) Ngày Quốc tế lao động: 01 ngày (ngày 01 tháng 5 dương lịch);\nđ) Quốc khánh: 02 ngày (ngày 02 tháng 9 dương lịch và 01 ngày liền kề trước hoặc sau);\ne) Ngày Giỗ Tổ Hùng Vương: 01 ngày (ngày 10 tháng 3 âm lịch).\n2. Lao động là người nước ngoài làm việc tại Việt Nam ngoài các ngày nghỉ theo quy định tại khoản 1 Điều này còn được nghỉ thêm 01 ngày Tết cổ truyền dân tộc và 01 ngày Quốc khánh của nước họ.\n3. Hằng năm, căn cứ vào điều kiện thực tế, Thủ tướng Chính phủ quyết định cụ thể ngày nghỉ quy định tại điêm b và điểm đ khoản 1 Điều này.\n\n[3fe27b9fd53b4099 | blld-2019 | năm 2019 | trang 42 | Điều 113 | phần 1/2]\nĐiều 113. Nghĩ hằng năm l\n1. Người lao động làm việc đủ 12 tháng cho một người sử dụng lao động thì được nghỉ hăng năm, hưởng nguyên lương theo hợp đông lao động như sau:\na) 12 ngày làm việc đối với người làm công việc trong điều kiện bình thường:\nb) 14 ngày làm việc đối với người lao động chưa thành niên, lao động là người khuyêt tật, người làm nghề, công việc nặng nhọc, độc hại, nguy hiểm;\nc) 16 ngày làm việc đối với người làm nghề, công việc đặc biệt nặng nhọc, độc hại, nguy hiêm.\n2. Người lao động làm việc chưa đủ 12 tháng cho một người sử dụng lao động thì sô ngày nghỉ hăng năm theo tỷ lệ tương ứng với sô tháng làm việc.\n3. Trường hợp do thôi việc, bị mất việc làm mà chưa nghỉ hằng năm hoặc chưa nghỉ hết số ngày nghỉ hăng năm thì được người sử dụng lao động thanh toán tiên lương cho những ngày chưa nghỉ...\n4. Người sử dụng lao động có trách nhiệm quy định lịch nghỉ hằng năm sau khi tham khảo ý kiến của người lao động và phải thông báo trước cho người lao động biệt. Người lao động có thê thỏa thuận với người sử dụng lao động đề nghỉ hăng năm thành nhiêu lân hoặc nghỉ gộp tối đa 03 năm một lân.\n\n[99042463a7e0e2f3 | blld-2019 | năm 2019 | trang 42 | Điều 113 | phần 2/2]\nĐiều 113. Nghĩ hằng năm l\n5. Khi nghỉ hằng năm mà chưa đến kỳ trả lương, người lao động được tạm ứng tiên lương theo quy định tại khoản 3 Điều 101 của Bộ luật này.\n6. Khi nghỉ hằng năm, nếu người lao động đi bằng các phương tiện đường bộ, đường săt, đường thủy mà số ngày đi đường cả đi và về trên 02 ngày thì từ ngày thứ 03 trở đi được tính thêm thời gian đi đường ngoài ngày nghỉ hăng năm và chỉ được tính cho 01 lân nghỉ trong năm.\n7. Chính phủ quy định chí tiết điều này.",
+  "final_context_chars": 2610,
+  "usage": {
+    "llm_calls": 2,
+    "prompt_tokens": 2349,
+    "output_tokens": 92,
+    "llm_seconds": 12.704563900013454,
+    "retrieval_seconds": 0.4289790999609977
+  },
+  "searches": 1,
+  "seconds": 13.13
+}

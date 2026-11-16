@@ -1,0 +1,234 @@
+{
+  "version": "2026-11-14",
+  "corpus": "starter/data/processed/pages.jsonl (Bộ luật Lao động 2012 + 2019, OCR đã làm sạch)",
+  "notes": [
+    "evidence_quote là danh sách; một chunk là hit khi thuộc đúng source/page của một gold và chứa ĐỦ mọi chuỗi trong evidence_quote của gold đó.",
+    "evidence_quote được copy nguyên văn từ text đã làm sạch, kể cả lỗi OCR (vd. 'băng', 'khuyêt'), để so khớp được tự động.",
+    "gold đầu tiên là gold chính (gold_source_id/gold_page); alternative_gold là các nguồn hợp lệ khác, chấp nhận bất kỳ.",
+    "filter là input giả định người dùng cung cấp trước khi truy xuất (năm của bộ luật được nhắc trong câu hỏi). Câu không có filter: cấu hình C chạy không lọc."
+  ],
+  "questions": [
+    {
+      "id": "q01", "split": "dev", "type": "metadata_filter",
+      "question": "Theo Bộ luật Lao động 2019, hai bên được giao kết hợp đồng lao động bằng lời nói đối với hợp đồng có thời hạn bao lâu?",
+      "filter": {"year": 2019},
+      "expected_answer": "Hợp đồng có thời hạn dưới 01 tháng (trừ các trường hợp tại khoản 2 Điều 18, điểm a khoản 1 Điều 145 và khoản 1 Điều 162).",
+      "gold_source_id": "blld-2019", "gold_page": 6, "gold_article": 14,
+      "evidence_quote": ["Hai bên có thể giao kết hợp đồng lao động bằng lời nói đối với hợp đồng có thời hạn dưới 01 tháng"],
+      "alternative_gold": []
+    },
+    {
+      "id": "q02", "split": "dev", "type": "metadata_filter",
+      "question": "Theo Bộ luật Lao động 2012, công việc tạm thời có thời hạn bao lâu thì các bên được giao kết hợp đồng bằng lời nói?",
+      "filter": {"year": 2012},
+      "expected_answer": "Công việc tạm thời có thời hạn dưới 03 tháng.",
+      "gold_source_id": "blld-2012", "gold_page": 6, "gold_article": 16,
+      "evidence_quote": ["Đối với công việc tạm thời có thời hạn dưới 03 tháng, các bên có thể giao kết hợp đồng lao động bằng lời nói."],
+      "alternative_gold": []
+    },
+    {
+      "id": "q03", "split": "dev", "type": "metadata_filter",
+      "question": "Theo Bộ luật Lao động 2019, số giờ làm thêm của người lao động tối đa trong một tháng là bao nhiêu?",
+      "filter": {"year": 2019},
+      "expected_answer": "Không quá 40 giờ trong 01 tháng (và không quá 200 giờ/năm, trừ các trường hợp được làm đến 300 giờ/năm).",
+      "gold_source_id": "blld-2019", "gold_page": 40, "gold_article": 107,
+      "evidence_quote": ["số giờ làm thêm không quá 12 giờ trong 01 ngày; không quá 40 giờ trong 01 tháng"],
+      "alternative_gold": []
+    },
+    {
+      "id": "q04", "split": "dev", "type": "metadata_filter",
+      "question": "Bộ luật Lao động 2012 giới hạn số giờ làm thêm trong một tháng là bao nhiêu?",
+      "filter": {"year": 2012},
+      "expected_answer": "Không quá 30 giờ trong 01 tháng.",
+      "gold_source_id": "blld-2012", "gold_page": 31, "gold_article": 106,
+      "evidence_quote": ["không quá 12 giờ trong 01 ngày, không quá 30 giờ trong 0] tháng"],
+      "alternative_gold": []
+    },
+    {
+      "id": "q05", "split": "dev", "type": "dien_dat_lai",
+      "question": "Người được tuyển vào vị trí quản lý doanh nghiệp có thể phải thử việc tối đa bao nhiêu ngày?",
+      "filter": null,
+      "expected_answer": "Không quá 180 ngày (quy định của Bộ luật Lao động 2019; bản 2012 không có mức riêng cho người quản lý doanh nghiệp).",
+      "gold_source_id": "blld-2019", "gold_page": 10, "gold_article": 25,
+      "evidence_quote": ["Không quá 180 ngày đối với công việc của người quản lý doanh nghiệp"],
+      "alternative_gold": []
+    },
+    {
+      "id": "q06", "split": "dev", "type": "truc_tiep",
+      "question": "Tiền lương trong thời gian thử việc ít nhất phải bằng bao nhiêu phần trăm mức lương của công việc đó?",
+      "filter": null,
+      "expected_answer": "Ít nhất bằng 85% mức lương của công việc đó (giống nhau ở bản 2012 và 2019).",
+      "gold_source_id": "blld-2019", "gold_page": 10, "gold_article": 26,
+      "evidence_quote": ["ít nhất phải băng 85% mức lương của công việc đó"],
+      "alternative_gold": [
+        {"source_id": "blld-2012", "page": 9, "article": 28,
+         "evidence_quote": ["ít nhất phải bằng 85% mức lương của công việc đó"]}
+      ]
+    },
+    {
+      "id": "q07", "split": "dev", "type": "dien_dat_lai",
+      "question": "Nhân viên ký hợp đồng không thời hạn muốn tự nghỉ việc thì phải báo trước cho công ty ít nhất bao lâu?",
+      "filter": null,
+      "expected_answer": "Ít nhất 45 ngày (bản 2012 có ngoại lệ cho lao động nữ mang thai theo Điều 156).",
+      "gold_source_id": "blld-2019", "gold_page": 14, "gold_article": 35,
+      "evidence_quote": ["Ít nhất 45 ngày nếu làm việc theo hợp đồng lao động không xác định thời hạn"],
+      "alternative_gold": [
+        {"source_id": "blld-2012", "page": 12, "article": 37,
+         "evidence_quote": ["Người lao động làm việc theo hợp đồng lao động không xác định thời hạn có quyền đơn phương chấm dứt hợp đồng lao động, nhưng phải báo cho người sử dụng lao động biết trước ít nhất 45 ngày"]}
+      ]
+    },
+    {
+      "id": "q08", "split": "dev", "type": "dieu_kien_ngoai_le",
+      "question": "Theo Bộ luật Lao động 2019, nếu người lao động bị trả lương không đúng thời hạn thì có phải báo trước khi đơn phương chấm dứt hợp đồng không?",
+      "filter": {"year": 2019},
+      "expected_answer": "Không cần báo trước, trừ trường hợp quy định tại khoản 4 Điều 97.",
+      "gold_source_id": "blld-2019", "gold_page": 14, "gold_article": 35,
+      "evidence_quote": [
+        "Người lao động có quyền đơn phương chấm đứt hợp đồng lao động không cân báo trước trong trường hợp sau đây",
+        "Không được trả đủ lương hoặc trả lương không đúng thời hạn, trừ trường hợp quy định tại khoản 4 Điều 97"
+      ],
+      "alternative_gold": []
+    },
+    {
+      "id": "q09", "split": "dev", "type": "truc_tiep",
+      "question": "Trợ cấp thôi việc được tính bao nhiêu cho mỗi năm làm việc?",
+      "filter": null,
+      "expected_answer": "Mỗi năm làm việc được trợ cấp một nửa tháng tiền lương (áp dụng cho người làm việc thường xuyên từ đủ 12 tháng trở lên).",
+      "gold_source_id": "blld-2019", "gold_page": 19, "gold_article": 46,
+      "evidence_quote": ["mỗi năm làm việc được trợ cấp một nửa tháng tiền lương"],
+      "alternative_gold": [
+        {"source_id": "blld-2012", "page": 15, "article": 48,
+         "evidence_quote": ["mỗi năm làm việc được trợ cấp một nửa tháng tiền lương"]}
+      ]
+    },
+    {
+      "id": "q10", "split": "dev", "type": "dieu_kien_ngoai_le",
+      "question": "Người lao động bị mất việc làm được nhận trợ cấp tối thiểu bằng bao nhiêu tháng lương?",
+      "filter": null,
+      "expected_answer": "Mỗi năm làm việc trả 01 tháng tiền lương nhưng ít nhất bằng 02 tháng tiền lương.",
+      "gold_source_id": "blld-2019", "gold_page": 19, "gold_article": 47,
+      "evidence_quote": ["cứ mỗi năm làm việc trả 01 tháng tiền lương nhưng ít nhất bằng 02 tháng tiền lương"],
+      "alternative_gold": [
+        {"source_id": "blld-2012", "page": 16, "article": 49,
+         "evidence_quote": ["nhung ít nhất phải bằng 02 tháng tiền lương"]}
+      ]
+    },
+    {
+      "id": "q11", "split": "dev", "type": "dieu_kien_ngoai_le",
+      "question": "Khi chấm dứt hợp đồng lao động, thời hạn thanh toán các khoản tiền giữa hai bên có thể được kéo dài tối đa bao nhiêu ngày?",
+      "filter": null,
+      "expected_answer": "Không quá 30 ngày (bản 2019: chỉ trong các trường hợp liệt kê tại khoản 1 Điều 48; bản 2012: trường hợp đặc biệt).",
+      "gold_source_id": "blld-2019", "gold_page": 20, "gold_article": 48,
+      "evidence_quote": ["có thể kéo đài nhưng không được quá 30 ngày"],
+      "alternative_gold": [
+        {"source_id": "blld-2012", "page": 15, "article": 47,
+         "evidence_quote": ["trường hợp đặc biệt, có thể kéo dài nhưng không được quá 30 ngày"]}
+      ]
+    },
+    {
+      "id": "q12", "split": "dev", "type": "truc_tiep",
+      "question": "Giờ làm việc ban đêm được tính từ mấy giờ đến mấy giờ?",
+      "filter": null,
+      "expected_answer": "Từ 22 giờ đến 06 giờ sáng ngày hôm sau.",
+      "gold_source_id": "blld-2019", "gold_page": 40, "gold_article": 106,
+      "evidence_quote": ["Giờ làm việc ban đêm được tính từ 22 giờ đến 06 giờ sáng ngày hôm sau."],
+      "alternative_gold": [
+        {"source_id": "blld-2012", "page": 30, "article": 105,
+         "evidence_quote": ["Giờ làm việc ban đêm được tính từ 22 giờ đến 6 giờ sáng ngày hôm sau."]}
+      ]
+    },
+    {
+      "id": "q13", "split": "dev", "type": "dien_dat_lai",
+      "question": "Người làm ca đêm được nghỉ giữa ca ít nhất bao nhiêu phút?",
+      "filter": null,
+      "expected_answer": "Ít nhất 45 phút (bản 2019 ghi rõ là 45 phút liên tục).",
+      "gold_source_id": "blld-2019", "gold_page": 41, "gold_article": 109,
+      "evidence_quote": ["làm việc ban đêm thì được nghỉ giữa giờ ít nhất 45 phút liên tục"],
+      "alternative_gold": [
+        {"source_id": "blld-2012", "page": 31, "article": 108,
+         "evidence_quote": ["Trường hợp làm việc ban đêm, thì người lao động được nghỉ giữa giờ ít nhât 45 phút"]}
+      ]
+    },
+    {
+      "id": "q14", "split": "dev", "type": "dieu_kien_ngoai_le",
+      "question": "Người lao động làm thêm giờ vào ngày nghỉ lễ được trả lương ít nhất bao nhiêu?",
+      "filter": null,
+      "expected_answer": "Ít nhất bằng 300%, chưa kể tiền lương ngày lễ đối với người lao động hưởng lương ngày.",
+      "gold_source_id": "blld-2019", "gold_page": 37, "gold_article": 98,
+      "evidence_quote": ["ít nhất bằng 300% chưa kể tiền lương ngày lễ, tết"],
+      "alternative_gold": [
+        {"source_id": "blld-2012", "page": 29, "article": 97,
+         "evidence_quote": ["ít nhất băng 300% chua kể tiền lương ngày lễ"]}
+      ]
+    },
+    {
+      "id": "q15", "split": "dev", "type": "dieu_kien_ngoai_le",
+      "question": "Người làm công việc nặng nhọc, độc hại, nguy hiểm được nghỉ hằng năm bao nhiêu ngày?",
+      "filter": null,
+      "expected_answer": "14 ngày làm việc (16 ngày nếu là công việc đặc biệt nặng nhọc, độc hại, nguy hiểm).",
+      "gold_source_id": "blld-2019", "gold_page": 42, "gold_article": 113,
+      "evidence_quote": ["14 ngày làm việc đối với người lao động chưa thành niên, lao động là người khuyêt tật, người làm nghề, công việc nặng nhọc, độc hại, nguy hiểm"],
+      "alternative_gold": [
+        {"source_id": "blld-2012", "page": 32, "article": 111,
+         "evidence_quote": ["14 ngày làm việc đối với người làm công việc nặng nhọc, độc hại, nguy hiểm"]}
+      ]
+    },
+    {
+      "id": "q16", "split": "test", "type": "metadata_filter",
+      "question": "Theo Bộ luật Lao động 2012, người lao động được hưởng lương hưu khi đủ bao nhiêu tuổi?",
+      "filter": {"year": 2012},
+      "expected_answer": "Nam đủ 60 tuổi, nữ đủ 55 tuổi (khi bảo đảm điều kiện về thời gian đóng bảo hiểm xã hội).",
+      "gold_source_id": "blld-2012", "gold_page": 52, "gold_article": 187,
+      "evidence_quote": ["được hưởng lương hưu khi nam đủ 60 tuổi, nữ đủ 55 tuổi"],
+      "alternative_gold": []
+    },
+    {
+      "id": "q17", "split": "test", "type": "metadata_filter",
+      "question": "Theo Bộ luật Lao động 2019, từ năm 2021 tuổi nghỉ hưu của lao động nữ trong điều kiện lao động bình thường là bao nhiêu?",
+      "filter": {"year": 2019},
+      "expected_answer": "Đủ 55 tuổi 04 tháng; sau đó mỗi năm tăng thêm 04 tháng cho đến khi đủ 60 tuổi vào năm 2035.",
+      "gold_source_id": "blld-2019", "gold_page": 60, "gold_article": 169,
+      "evidence_quote": ["Kể từ năm 2021, tuổi nghỉ hưu của người lao động trong điều kiện lao động bình thường là đủ 60 tuổi 03 tháng đối với lao động nam và đủ 55 tuổi 04 tháng đối với lao động nữ"],
+      "alternative_gold": []
+    },
+    {
+      "id": "q18", "split": "test", "type": "metadata_filter",
+      "question": "Theo Bộ luật Lao động 2019, người lao động được nghỉ bao nhiêu ngày vào dịp Quốc khánh?",
+      "filter": {"year": 2019},
+      "expected_answer": "02 ngày (ngày 02 tháng 9 dương lịch và 01 ngày liền kề trước hoặc sau).",
+      "gold_source_id": "blld-2019", "gold_page": 42, "gold_article": 112,
+      "evidence_quote": ["Quốc khánh: 02 ngày (ngày 02 tháng 9 dương lịch và 01 ngày liền kề trước hoặc sau)"],
+      "alternative_gold": []
+    },
+    {
+      "id": "q19", "split": "test", "type": "dieu_kien_ngoai_le",
+      "question": "Nếu nhân viên vi phạm liên quan trực tiếp đến tài sản của công ty thì thời hiệu xử lý kỷ luật lao động là bao lâu?",
+      "filter": null,
+      "expected_answer": "12 tháng (thay vì 06 tháng như thông thường).",
+      "gold_source_id": "blld-2019", "gold_page": 46, "gold_article": 123,
+      "evidence_quote": ["liên quan trực tiếp đến tài chính, tài sản, tiệt lộ bí mật công nghệ, bí mật kinh doanh của người sử dụng lao động thì thời hiệu xử lý kỷ luật lao động là 12 tháng"],
+      "alternative_gold": [
+        {"source_id": "blld-2012", "page": 35, "article": 124,
+         "evidence_quote": ["liên quan trực tiếp đến tài chính, tài sản, tiết lộ bí mật công nghệ, bí mật kinh doanh của người sử dụng lao động thì thời hiệu xử lý kỷ luật lao động tối đa là 12 tháng"]}
+      ]
+    },
+    {
+      "id": "q20", "split": "test", "type": "dieu_kien_ngoai_le",
+      "question": "Lao động nữ mang thai làm việc ở vùng cao hoặc hải đảo không được bố trí làm việc ban đêm kể từ tháng thai thứ mấy?",
+      "filter": null,
+      "expected_answer": "Từ tháng thứ 06 (thay vì tháng thứ 07 như nơi khác).",
+      "gold_source_id": "blld-2019", "gold_page": 50, "gold_article": 137,
+      "evidence_quote": [
+        "không được sử dụng người lao động làm việc ban đêm",
+        "Mang thai từ tháng thứ 07 hoặc từ tháng thứ 06 nếu làm việc ở vùng cao, vùng sâu, vùng xa, biên giới, hải đảo"
+      ],
+      "alternative_gold": [
+        {"source_id": "blld-2012", "page": 44, "article": 155,
+         "evidence_quote": [
+           "không được sử dụng lao động nữ làm việc ban đêm",
+           "Mang thai từ tháng thứ 07 hoặc từ tháng thứ 06 nếu làm việc ở vùng cao, vùng sâu, vùng xa, biên giới, hải đảo"
+         ]}
+      ]
+    }
+  ]
+}
