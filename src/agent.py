@@ -9,7 +9,8 @@
   part expansion, char budget). Only the latest cumulative context is kept in the conversation;
   older tool messages are replaced by a short note so the budget is not multiplied.
 - Stop: the model answers; or after `max_searches` searches the tools are removed and the model
-  must answer from the context or abstain (event `search_limit`).
+  must answer from the context or abstain (event `search_limit`); or after `max_llm_calls` model calls
+  (default max_searches + 3) the run abstains (event `llm_call_limit`).
 - Status: "answered" when the answer cites >= 1 chunk and every cited ID is in the final context;
   "abstain" when it says there is not enough evidence, cites nothing, or cites IDs not in the context
   (raw answer kept in the trace); "error" on model/store failure (never replaced by a fake result).
@@ -69,7 +70,10 @@ OLD_TOOL_NOTE = "(Kết quả lượt này đã được gộp vào kết quả 
 
 
 def run_agent(view: dict[str, Any], llm, retriever, builder: ContextBuilder, *, max_searches: int = 3,
-              top_k: int = 3, filter_policy: str = "user_or_inferred") -> dict[str, Any]:
+              top_k: int = 3, filter_policy: str = "user_or_inferred", max_llm_calls: int | None = None) -> dict[str, Any]:
+    # Hard cap on model calls so a model that keeps sending invalid tool calls, or tool calls after the
+    # search limit, cannot loop forever (added after the runs; no recorded run needed more than 2 calls).
+    max_llm_calls = max_llm_calls or max_searches + 3
     question, user_filter = view["question"], view.get("filter")
     messages = [{"role": "system", "content": SYSTEM_PROMPT}, {"role": "user", "content": question}]
     events, candidates, ctx = [], [], {"context": "", "context_ids": [], "chunks": []}
@@ -86,6 +90,10 @@ def run_agent(view: dict[str, Any], llm, retriever, builder: ContextBuilder, *, 
 
     try:
         while True:
+            if usage["llm_calls"] >= max_llm_calls:
+                events.append({"event": "llm_call_limit", "limit": max_llm_calls})
+                answer = ""
+                break
             allow_tools = searches < max_searches
             msg = call(TOOLS if allow_tools else None)
             calls = msg.get("tool_calls") or []

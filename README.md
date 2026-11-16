@@ -26,15 +26,17 @@ Cần có Docker Desktop và Ollama với model `qwen3.5:9b` (`ollama pull qwen3
 python -m venv .venv
 .venv/Scripts/python -m pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
 .venv/Scripts/python -m pip install -r requirements.txt
-copy .env.example .env
+cp .env.example .env
 docker compose -p day6_student_starter up -d --wait
 ```
 
-- Volume pgvector của Day 6 được dùng lại. Nếu tạo DB mới, nạp 552 vector từ `data/day6/vectors_B.npz` bằng `scripts/ingest_store.py` của repo Day 6. Không cần embed lại.
+- Volume pgvector của Day 6 được dùng lại nếu có. Nếu DB mới tạo (rỗng), nạp 552 vector từ `data/day6/vectors_B.npz`, không cần repo Day 6 và không cần embed lại:
+  - `.venv/Scripts/python -X utf8 scripts/load_vectors.py`: dry run, chỉ kiểm tra file vector khớp chunk và embed lại 3 chunk cho cosine bằng 1,0;
+  - `.venv/Scripts/python -X utf8 scripts/load_vectors.py --write`: ghi vào pgvector, chạy lại an toàn nhiều lần.
 - Lần chạy đầu, `intfloat/multilingual-e5-base` và `BAAI/bge-reranker-v2-m3` được tải tự động từ HuggingFace.
 
 ```bash
-.venv/Scripts/python -X utf8 -m unittest discover -s tests -v          # 30 test offline (mock)
+.venv/Scripts/python -X utf8 -m unittest discover -s tests -v          # 31 test offline (mock)
 .venv/Scripts/python -X utf8 scripts/check_store.py                    # kiểm tra store: 552 dòng, self-retrieval, filter
 .venv/Scripts/python -X utf8 scripts/build_benchmark.py                # sinh benchmark/questions.json
 .venv/Scripts/python -X utf8 scripts/verify_benchmark.py               # 53/53 quote đúng trang, dev/test không trùng Điều

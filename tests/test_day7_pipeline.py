@@ -80,6 +80,14 @@ class AgentTests(unittest.TestCase):
         self.assertEqual(out["events"][0]["filter"], {"year": 2019})
         self.assertEqual(out["events"][0]["filter_source"], "user")
 
+    def test_llm_call_limit_stops_endless_invalid_tool_calls(self):
+        bad = {"role": "assistant", "content": "", "tool_calls": [{"function": {"name": "search_law", "arguments": {"query": ""}}}]}
+        llm = FakeLLM([bad] * 50)
+        out = run_agent({"question": "q"}, llm, Fixed("r", CHUNKS), self.builder, max_searches=2)
+        self.assertEqual(out["status"], "abstain")
+        self.assertEqual(out["usage"]["llm_calls"], 5)                     # max_searches + 3
+        self.assertEqual(out["events"][-2]["event"], "llm_call_limit")
+
     def test_grouped_citations_are_parsed_and_checked(self):
         from src.agent import classify_answer, parse_citations
         a, b = "a" * 16, "b" * 16

@@ -22,7 +22,7 @@ Nguồn số liệu: `comparison_dev.md` (có filter `year` do người dùng cu
 | Hậu quả | Model nhận chunk sai năm ở hạng 1 và dễ trả lời sai con số (30 thay vì 40 giờ). Đây là lỗi nguy hiểm nhất của corpus này. |
 | Giả thuyết | Áp filter `year` lấy từ chính câu hỏi (người dùng đã ghi năm) sẽ loại chunk sai năm. Có filter thì q03 và q16 đều lên hạng 1 ở mọi cấu hình (bảng có filter). |
 | Thay đổi thử | **I3: agent tự suy năm** từ câu hỏi qua tham số `year` của tool `search_law`, ghi `filter_source: inferred`. Đo trên dev bằng cấu hình agent **bỏ qua filter của benchmark**, để xem model tự suy năm có tốt bằng filter người dùng đưa vào không. |
-| Trước → sau | Retrieval: không filter 14/20 → có filter 16/20 (Hit@1, dense). Bước agent: chờ P5.4. |
+| Trước → sau | Retrieval: không filter 14/20 → có filter 16/20 (Hit@1, dense). Agent (`agent_dense_inferred`): model tự suy **đúng năm ở 8/8** câu có năm, kết quả giống hệt baseline (Context Evidence 18/20, grounded 1,80). Như vậy bỏ được filter nhập tay mà không mất chất lượng, nhưng không tăng điểm. Model cũng tự gán `year=2019` cho u01 (câu không nêu năm). |
 
 ## Lỗi 2: nhầm Điều kề nhau có cùng chủ đề (q08, q07; câu cần nhiều đoạn evidence)
 

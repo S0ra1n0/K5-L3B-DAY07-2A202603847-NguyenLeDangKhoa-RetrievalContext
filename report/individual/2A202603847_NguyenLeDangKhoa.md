@@ -95,7 +95,7 @@ Bảng trên dùng query gốc, filter năm do người dùng cung cấp, và co
 |---|---|---|---|---|
 | t01 (test, dense) | có đáp án, filter 2012 | `search_law(year=2012)`, top-1 Điều 22/2012 | "…từ đủ 12 tháng đến 36 tháng [a30b357d86050788]" | grade 2; citation đúng. Bản 2019 ghi "không quá 36 tháng", nên filter có tác dụng. |
 | t11 (test, dense) | thiếu bằng chứng | 1 lượt tìm, không có Điều nào nêu mức thưởng | "Không đủ bằng chứng trong Bộ luật Lao động 2012/2019 để trả lời." | abstention đúng. |
-| t05 (test, cả hai cấu hình) | có đáp án | top-1 Điều 111/2019, Điều 110/2012 | Nội dung đúng ("ít nhất 24 giờ liên tục") nhưng cite `[id \| id]`, bộ đọc citation không nhận, nên status = abstain | grade 0 (từ chối câu có đáp án). **Lỗi định dạng citation phát hiện trên test.** |
+| t05 (test, cả hai cấu hình) | có đáp án | top-2 là Điều 111/2019 và Điều 110/2012 (dense xếp 2019 lên đầu, rerank xếp 2012 lên đầu) | Nội dung đúng ("ít nhất 24 giờ liên tục") nhưng cite `[id \| id]`, bộ đọc citation không nhận, nên status = abstain | grade 0 (từ chối câu có đáp án). **Lỗi định dạng citation phát hiện trên test.** |
 | q08 (dev, hybrid) | điều kiện/ngoại lệ, filter 2019 | context thiếu khoản 2 Điều 35 | Đầu nói "không phải báo trước", cuối nói "vẫn phải tuân thủ thời hạn báo trước" | grade 0; câu trả lời tự mâu thuẫn, do lượt 2 tìm ra. |
 | q08 (dev, rerank) | như trên | top-1 Điều 35/2019 part 2 | "…không cần báo trước… trừ khoản 4 Điều 97 [ea3dc8618a0d48a9]" | grade 2; I1 sửa được lỗi 2. |
 
@@ -140,7 +140,10 @@ Tôi dùng Claude Code (Claude Opus 5.5) để:
 Cách kiểm tra:
 - Evidence được script đối chiếu với trang nguồn (53/53).
 - Câu thiếu bằng chứng được grep trên toàn corpus.
-- 30 unittest offline.
+- 31 unittest offline.
+- Rà soát sau khi nộp (2026-11-16):
+  - Thêm giới hạn số lần gọi model cho vòng lặp agent, để chặn khả năng lặp vô hạn khi model cứ gửi tool call không hợp lệ. Mọi lượt chạy đã ghi đều dùng đúng 2 lần gọi, nên kết quả không đổi.
+  - Thêm `scripts/load_vectors.py` để nạp lại pgvector mà không cần repo Day 6. Dry run: 552 vector khớp chunk, embed lại cho cosine bằng 1,0.
 - Khóa quy trình chặn chạy khi benchmark chưa đóng băng và chặn chạy test trước khi chọn cấu hình.
 - Mọi số trong báo cáo sinh từ file kết quả.
 - Tôi duyệt câu t01 (và yêu cầu sửa `expected_answer`), chọn chủ đề test, xác nhận tiêu chí và cấu hình được chọn. Tôi **chưa** duyệt từng nhãn câu trả lời.
