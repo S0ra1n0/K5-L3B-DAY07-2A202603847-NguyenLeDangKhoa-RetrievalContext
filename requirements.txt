@@ -12,4 +12,8 @@ python-dotenv==1.2.4
 # Lexical retrieval and Vietnamese word segmentation
 rank-bm25==0.2.2
 pyvi==0.1.1
+# Advanced challenge: PDF reading, layout (word boxes, tables), page rendering
+pypdf==6.1.3
+pdfplumber==0.11.10
+pypdfium2==5.15.2
 # The agent calls a local Ollama server over HTTP (standard library only).

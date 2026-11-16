@@ -9,3 +9,13 @@ __pycache__/
 # Local datasets and generated output; share permitted artifacts deliberately
 starter/data/
 starter/results/
+
+# Advanced challenge: source PDF and heavy extraction outputs stay local unless the licence allows sharing
+advanced/data/raw/*
+!advanced/data/raw/.gitkeep
+# full-page renders are regenerable (extract.py render)
+advanced/data/processed/pages_img/
+# figure/table crops are regenerable from the PDF + bbox in regions.json (extract.py render)
+advanced/data/processed/figures/*.png
+# dense vectors are regenerable (advanced/rag/retrieval.py caches them on first use)
+advanced/data/index/vectors.npy

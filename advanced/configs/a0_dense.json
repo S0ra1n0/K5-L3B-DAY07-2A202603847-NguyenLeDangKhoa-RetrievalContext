@@ -1,0 +1,2 @@
+{"name": "a0_dense", "retriever": {"method": "dense"}, "top_k": 5, "max_searches": 3, "budget": 7000, "view_page": false,
+ "note": "baseline: e5 dense only"}

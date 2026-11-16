@@ -1,0 +1,737 @@
+{
+ "stats": {
+  "document_pages": 280,
+  "pages_with_text": 267,
+  "near_empty_pages": [
+   2,
+   12,
+   16,
+   18,
+   22,
+   25,
+   26,
+   106,
+   264,
+   265,
+   266,
+   278,
+   279
+  ],
+  "profile_pages": 128,
+  "regions": {
+   "figure": 46,
+   "table": 2,
+   "profile": 127
+  },
+  "tables": {
+   "tab_1_1": {
+    "rows": 13,
+    "issues": [
+     "'Debt stock': printed '8.182.1' (separator typo in the source), read as 8182.1",
+     "'Short-term': printed '2.009.7' (separator typo in the source), read as 2009.7",
+     "'Short-term': printed '2.041.7' (separator typo in the source), read as 2041.7"
+    ]
+   },
+   "tab_1_2": {
+    "rows": 13,
+    "issues": []
+   }
+  },
+  "described": 84,
+  "describe_errors": 0,
+  "describe_seconds_total": 5500.0,
+  "regions_with_unsupported_numbers": 4,
+  "stated_numbers_total": 1540,
+  "unsupported_numbers_total": 12
+ },
+ "checks": [
+  {
+   "id": "tab_1_1",
+   "kind": "table",
+   "pdf_page": 28,
+   "stated_numbers": 145,
+   "unsupported": [
+    "1000",
+    "2009.7",
+    "2041.7",
+    "8182.1",
+    "9000"
+   ],
+   "seconds": 37.6
+  },
+  {
+   "id": "fig_1_1",
+   "kind": "figure",
+   "pdf_page": 30,
+   "stated_numbers": 1,
+   "unsupported": [],
+   "seconds": 21.1
+  },
+  {
+   "id": "fig_1_2",
+   "kind": "figure",
+   "pdf_page": 35,
+   "stated_numbers": 1,
+   "unsupported": [],
+   "seconds": 14.8
+  },
+  {
+   "id": "fig_1_3",
+   "kind": "figure",
+   "pdf_page": 36,
+   "stated_numbers": 5,
+   "unsupported": [],
+   "seconds": 63.1
+  },
+  {
+   "id": "fig_1_4",
+   "kind": "figure",
+   "pdf_page": 41,
+   "stated_numbers": 1,
+   "unsupported": [],
+   "seconds": 47.1
+  },
+  {
+   "id": "fig_1_5",
+   "kind": "figure",
+   "pdf_page": 43,
+   "stated_numbers": 2,
+   "unsupported": [],
+   "seconds": 9.4
+  },
+  {
+   "id": "fig_1_6",
+   "kind": "figure",
+   "pdf_page": 46,
+   "stated_numbers": 2,
+   "unsupported": [],
+   "seconds": 36.9
+  },
+  {
+   "id": "fig_1_7",
+   "kind": "figure",
+   "pdf_page": 47,
+   "stated_numbers": 6,
+   "unsupported": [],
+   "seconds": 55.4
+  },
+  {
+   "id": "fig_1_8",
+   "kind": "figure",
+   "pdf_page": 48,
+   "stated_numbers": 9,
+   "unsupported": [],
+   "seconds": 38.1
+  },
+  {
+   "id": "fig_1_9",
+   "kind": "figure",
+   "pdf_page": 50,
+   "stated_numbers": 8,
+   "unsupported": [],
+   "seconds": 100.9
+  },
+  {
+   "id": "fig_1_10",
+   "kind": "figure",
+   "pdf_page": 51,
+   "stated_numbers": 8,
+   "unsupported": [],
+   "seconds": 83.5
+  },
+  {
+   "id": "fig_1_11",
+   "kind": "figure",
+   "pdf_page": 52,
+   "stated_numbers": 3,
+   "unsupported": [],
+   "seconds": 61.7
+  },
+  {
+   "id": "fig_1_12",
+   "kind": "figure",
+   "pdf_page": 55,
+   "stated_numbers": 2,
+   "unsupported": [],
+   "seconds": 47.2
+  },
+  {
+   "id": "fig_1_13",
+   "kind": "figure",
+   "pdf_page": 56,
+   "stated_numbers": 8,
+   "unsupported": [],
+   "seconds": 99.3
+  },
+  {
+   "id": "fig_1_14",
+   "kind": "figure",
+   "pdf_page": 57,
+   "stated_numbers": 5,
+   "unsupported": [],
+   "seconds": 40.3
+  },
+  {
+   "id": "fig_1_15",
+   "kind": "figure",
+   "pdf_page": 58,
+   "stated_numbers": 7,
+   "unsupported": [],
+   "seconds": 101.3
+  },
+  {
+   "id": "fig_1_16",
+   "kind": "figure",
+   "pdf_page": 60,
+   "stated_numbers": 6,
+   "unsupported": [],
+   "seconds": 52.1
+  },
+  {
+   "id": "fig_1_17",
+   "kind": "figure",
+   "pdf_page": 61,
+   "stated_numbers": 7,
+   "unsupported": [],
+   "seconds": 74.3
+  },
+  {
+   "id": "fig_1_18",
+   "kind": "figure",
+   "pdf_page": 62,
+   "stated_numbers": 8,
+   "unsupported": [],
+   "seconds": 79.9
+  },
+  {
+   "id": "tab_1_2",
+   "kind": "table",
+   "pdf_page": 63,
+   "stated_numbers": 131,
+   "unsupported": [],
+   "seconds": 106.1
+  },
+  {
+   "id": "fig_1_19",
+   "kind": "figure",
+   "pdf_page": 65,
+   "stated_numbers": 6,
+   "unsupported": [],
+   "seconds": 58.2
+  },
+  {
+   "id": "fig_1_20",
+   "kind": "figure",
+   "pdf_page": 66,
+   "stated_numbers": 3,
+   "unsupported": [],
+   "seconds": 43.7
+  },
+  {
+   "id": "fig_1_21",
+   "kind": "figure",
+   "pdf_page": 68,
+   "stated_numbers": 2,
+   "unsupported": [],
+   "seconds": 53.0
+  },
+  {
+   "id": "fig_1_22",
+   "kind": "figure",
+   "pdf_page": 72,
+   "stated_numbers": 15,
+   "unsupported": [
+    "20000"
+   ],
+   "seconds": 42.1
+  },
+  {
+   "id": "fig_2_1",
+   "kind": "figure",
+   "pdf_page": 76,
+   "stated_numbers": 12,
+   "unsupported": [
+    "1100",
+    "300",
+    "500",
+    "700",
+    "900"
+   ],
+   "seconds": 51.9
+  },
+  {
+   "id": "fig_2_2",
+   "kind": "figure",
+   "pdf_page": 77,
+   "stated_numbers": 6,
+   "unsupported": [],
+   "seconds": 69.0
+  },
+  {
+   "id": "fig_2_3",
+   "kind": "figure",
+   "pdf_page": 78,
+   "stated_numbers": 8,
+   "unsupported": [],
+   "seconds": 85.7
+  },
+  {
+   "id": "fig_2_4",
+   "kind": "figure",
+   "pdf_page": 80,
+   "stated_numbers": 3,
+   "unsupported": [],
+   "seconds": 604.4
+  },
+  {
+   "id": "fig_2_5",
+   "kind": "figure",
+   "pdf_page": 81,
+   "stated_numbers": 1,
+   "unsupported": [],
+   "seconds": 59.7
+  },
+  {
+   "id": "fig_2_6",
+   "kind": "figure",
+   "pdf_page": 83,
+   "stated_numbers": 2,
+   "unsupported": [],
+   "seconds": 44.9
+  },
+  {
+   "id": "fig_2_7",
+   "kind": "figure",
+   "pdf_page": 84,
+   "stated_numbers": 4,
+   "unsupported": [],
+   "seconds": 72.5
+  },
+  {
+   "id": "fig_2_8",
+   "kind": "figure",
+   "pdf_page": 85,
+   "stated_numbers": 5,
+   "unsupported": [],
+   "seconds": 74.8
+  },
+  {
+   "id": "fig_2_9",
+   "kind": "figure",
+   "pdf_page": 87,
+   "stated_numbers": 9,
+   "unsupported": [],
+   "seconds": 68.3
+  },
+  {
+   "id": "fig_2_10",
+   "kind": "figure",
+   "pdf_page": 88,
+   "stated_numbers": 4,
+   "unsupported": [],
+   "seconds": 47.9
+  },
+  {
+   "id": "fig_2_11",
+   "kind": "figure",
+   "pdf_page": 90,
+   "stated_numbers": 5,
+   "unsupported": [],
+   "seconds": 64.0
+  },
+  {
+   "id": "fig_2_12",
+   "kind": "figure",
+   "pdf_page": 91,
+   "stated_numbers": 12,
+   "unsupported": [],
+   "seconds": 70.8
+  },
+  {
+   "id": "fig_2_13",
+   "kind": "figure",
+   "pdf_page": 97,
+   "stated_numbers": 18,
+   "unsupported": [
+    "18"
+   ],
+   "seconds": 68.2
+  },
+  {
+   "id": "fig_2_14_p098",
+   "kind": "figure",
+   "pdf_page": 98,
+   "stated_numbers": 6,
+   "unsupported": [],
+   "seconds": 522.2
+  },
+  {
+   "id": "fig_2_14_p099",
+   "kind": "figure",
+   "pdf_page": 99,
+   "stated_numbers": 15,
+   "unsupported": [],
+   "seconds": 47.6
+  },
+  {
+   "id": "fig_2_15_p100",
+   "kind": "figure",
+   "pdf_page": 100,
+   "stated_numbers": 9,
+   "unsupported": [],
+   "seconds": 48.9
+  },
+  {
+   "id": "fig_2_15_p101",
+   "kind": "figure",
+   "pdf_page": 101,
+   "stated_numbers": 12,
+   "unsupported": [],
+   "seconds": 62.3
+  },
+  {
+   "id": "fig_2_16",
+   "kind": "figure",
+   "pdf_page": 102,
+   "stated_numbers": 20,
+   "unsupported": [],
+   "seconds": 62.8
+  },
+  {
+   "id": "fig_3_1",
+   "kind": "figure",
+   "pdf_page": 110,
+   "stated_numbers": 6,
+   "unsupported": [],
+   "seconds": 40.4
+  },
+  {
+   "id": "fig_3_2",
+   "kind": "figure",
+   "pdf_page": 111,
+   "stated_numbers": 12,
+   "unsupported": [],
+   "seconds": 54.5
+  },
+  {
+   "id": "fig_3_3",
+   "kind": "figure",
+   "pdf_page": 113,
+   "stated_numbers": 21,
+   "unsupported": [],
+   "seconds": 51.9
+  },
+  {
+   "id": "fig_3_4",
+   "kind": "figure",
+   "pdf_page": 113,
+   "stated_numbers": 5,
+   "unsupported": [],
+   "seconds": 23.7
+  },
+  {
+   "id": "fig_3B_1",
+   "kind": "figure",
+   "pdf_page": 132,
+   "stated_numbers": 0,
+   "unsupported": [],
+   "seconds": 28.9
+  },
+  {
+   "id": "guide_p136",
+   "kind": "figure",
+   "pdf_page": 136,
+   "stated_numbers": 12,
+   "unsupported": [],
+   "seconds": 77.8
+  },
+  {
+   "id": "profile_p137",
+   "kind": "profile",
+   "pdf_page": 137,
+   "stated_numbers": 27,
+   "unsupported": [],
+   "seconds": 33.7
+  },
+  {
+   "id": "profile_p138",
+   "kind": "profile",
+   "pdf_page": 138,
+   "stated_numbers": 26,
+   "unsupported": [],
+   "seconds": 49.2
+  },
+  {
+   "id": "profile_p139",
+   "kind": "profile",
+   "pdf_page": 139,
+   "stated_numbers": 27,
+   "unsupported": [],
+   "seconds": 58.8
+  },
+  {
+   "id": "profile_p140",
+   "kind": "profile",
+   "pdf_page": 140,
+   "stated_numbers": 28,
+   "unsupported": [],
+   "seconds": 54.0
+  },
+  {
+   "id": "profile_p141",
+   "kind": "profile",
+   "pdf_page": 141,
+   "stated_numbers": 26,
+   "unsupported": [],
+   "seconds": 59.2
+  },
+  {
+   "id": "profile_p142",
+   "kind": "profile",
+   "pdf_page": 142,
+   "stated_numbers": 28,
+   "unsupported": [],
+   "seconds": 49.1
+  },
+  {
+   "id": "profile_p143",
+   "kind": "profile",
+   "pdf_page": 143,
+   "stated_numbers": 29,
+   "unsupported": [],
+   "seconds": 53.7
+  },
+  {
+   "id": "profile_p144",
+   "kind": "profile",
+   "pdf_page": 144,
+   "stated_numbers": 24,
+   "unsupported": [],
+   "seconds": 48.9
+  },
+  {
+   "id": "profile_p145",
+   "kind": "profile",
+   "pdf_page": 145,
+   "stated_numbers": 29,
+   "unsupported": [],
+   "seconds": 43.3
+  },
+  {
+   "id": "profile_p146",
+   "kind": "profile",
+   "pdf_page": 146,
+   "stated_numbers": 23,
+   "unsupported": [],
+   "seconds": 43.0
+  },
+  {
+   "id": "profile_p147",
+   "kind": "profile",
+   "pdf_page": 147,
+   "stated_numbers": 27,
+   "unsupported": [],
+   "seconds": 49.9
+  },
+  {
+   "id": "profile_p148",
+   "kind": "profile",
+   "pdf_page": 148,
+   "stated_numbers": 29,
+   "unsupported": [],
+   "seconds": 57.4
+  },
+  {
+   "id": "profile_p149",
+   "kind": "profile",
+   "pdf_page": 149,
+   "stated_numbers": 27,
+   "unsupported": [],
+   "seconds": 53.3
+  },
+  {
+   "id": "profile_p150",
+   "kind": "profile",
+   "pdf_page": 150,
+   "stated_numbers": 26,
+   "unsupported": [],
+   "seconds": 55.4
+  },
+  {
+   "id": "profile_p151",
+   "kind": "profile",
+   "pdf_page": 151,
+   "stated_numbers": 26,
+   "unsupported": [],
+   "seconds": 53.6
+  },
+  {
+   "id": "profile_p152",
+   "kind": "profile",
+   "pdf_page": 152,
+   "stated_numbers": 25,
+   "unsupported": [],
+   "seconds": 50.0
+  },
+  {
+   "id": "profile_p153",
+   "kind": "profile",
+   "pdf_page": 153,
+   "stated_numbers": 29,
+   "unsupported": [],
+   "seconds": 46.4
+  },
+  {
+   "id": "profile_p154",
+   "kind": "profile",
+   "pdf_page": 154,
+   "stated_numbers": 31,
+   "unsupported": [],
+   "seconds": 47.3
+  },
+  {
+   "id": "profile_p155",
+   "kind": "profile",
+   "pdf_page": 155,
+   "stated_numbers": 25,
+   "unsupported": [],
+   "seconds": 54.1
+  },
+  {
+   "id": "profile_p156",
+   "kind": "profile",
+   "pdf_page": 156,
+   "stated_numbers": 26,
+   "unsupported": [],
+   "seconds": 49.6
+  },
+  {
+   "id": "profile_p157",
+   "kind": "profile",
+   "pdf_page": 157,
+   "stated_numbers": 25,
+   "unsupported": [],
+   "seconds": 46.6
+  },
+  {
+   "id": "profile_p158",
+   "kind": "profile",
+   "pdf_page": 158,
+   "stated_numbers": 22,
+   "unsupported": [],
+   "seconds": 42.8
+  },
+  {
+   "id": "profile_p159",
+   "kind": "profile",
+   "pdf_page": 159,
+   "stated_numbers": 31,
+   "unsupported": [],
+   "seconds": 45.8
+  },
+  {
+   "id": "profile_p160",
+   "kind": "profile",
+   "pdf_page": 160,
+   "stated_numbers": 26,
+   "unsupported": [],
+   "seconds": 57.9
+  },
+  {
+   "id": "profile_p161",
+   "kind": "profile",
+   "pdf_page": 161,
+   "stated_numbers": 23,
+   "unsupported": [],
+   "seconds": 40.5
+  },
+  {
+   "id": "profile_p162",
+   "kind": "profile",
+   "pdf_page": 162,
+   "stated_numbers": 26,
+   "unsupported": [],
+   "seconds": 46.0
+  },
+  {
+   "id": "profile_p163",
+   "kind": "profile",
+   "pdf_page": 163,
+   "stated_numbers": 24,
+   "unsupported": [],
+   "seconds": 49.1
+  },
+  {
+   "id": "profile_p164",
+   "kind": "profile",
+   "pdf_page": 164,
+   "stated_numbers": 27,
+   "unsupported": [],
+   "seconds": 49.8
+  },
+  {
+   "id": "profile_p165",
+   "kind": "profile",
+   "pdf_page": 165,
+   "stated_numbers": 22,
+   "unsupported": [],
+   "seconds": 38.5
+  },
+  {
+   "id": "profile_p166",
+   "kind": "profile",
+   "pdf_page": 166,
+   "stated_numbers": 25,
+   "unsupported": [],
+   "seconds": 36.3
+  },
+  {
+   "id": "profile_p167",
+   "kind": "profile",
+   "pdf_page": 167,
+   "stated_numbers": 28,
+   "unsupported": [],
+   "seconds": 56.4
+  },
+  {
+   "id": "profile_p168",
+   "kind": "profile",
+   "pdf_page": 168,
+   "stated_numbers": 29,
+   "unsupported": [],
+   "seconds": 51.3
+  },
+  {
+   "id": "profile_p169",
+   "kind": "profile",
+   "pdf_page": 169,
+   "stated_numbers": 22,
+   "unsupported": [],
+   "seconds": 47.4
+  },
+  {
+   "id": "profile_p170",
+   "kind": "profile",
+   "pdf_page": 170,
+   "stated_numbers": 27,
+   "unsupported": [],
+   "seconds": 49.7
+  },
+  {
+   "id": "profile_p255",
+   "kind": "profile",
+   "pdf_page": 255,
+   "stated_numbers": 21,
+   "unsupported": [],
+   "seconds": 24.0
+  },
+  {
+   "id": "profile_p260",
+   "kind": "profile",
+   "pdf_page": 260,
+   "stated_numbers": 26,
+   "unsupported": [],
+   "seconds": 37.8
+  }
+ ]
+}

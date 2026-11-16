@@ -1,0 +1,2 @@
+{"name": "a1_hybrid", "retriever": {"method": "hybrid", "candidates": 20, "rrf_k": 60}, "top_k": 5, "max_searches": 3, "budget": 7000, "view_page": false,
+ "note": "dense + BM25 fused by RRF; smoke test showed BM25 helps country names and figure numbers"}

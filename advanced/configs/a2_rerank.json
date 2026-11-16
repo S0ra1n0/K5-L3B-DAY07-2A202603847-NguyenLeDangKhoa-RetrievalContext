@@ -1,0 +1,2 @@
+{"name": "a2_rerank", "retriever": {"method": "rerank", "base": {"method": "hybrid"}, "candidates": 20}, "top_k": 5, "max_searches": 3, "budget": 7000, "view_page": false,
+ "note": "hybrid candidates re-scored by bge-reranker-v2-m3 (CPU, ~11-18 s per search while the GPU runs the LLM)"}

@@ -1,0 +1,2 @@
+{"name": "a3_hybrid_view", "retriever": {"method": "hybrid", "candidates": 20, "rrf_k": 60}, "top_k": 5, "max_searches": 3, "budget": 7000, "view_page": true, "max_views": 2,
+ "note": "a1 + view_page tool: the vision model reads a page image the search returned (charts without data labels)"}

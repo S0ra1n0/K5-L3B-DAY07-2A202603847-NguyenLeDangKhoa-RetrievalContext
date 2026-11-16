@@ -1,0 +1,1204 @@
+{
+ "status": "DRAFT - not reviewed by a human yet, not frozen",
+ "document": "World Bank. 2026. International Debt Report 2026 (CC BY 3.0 IGO), sha256 in advanced/data/source.json",
+ "page_convention": "pdf_page = 1-based page index in the PDF file; printed_page = page number printed on the page",
+ "language": "Questions in English (the document's language) with a Vietnamese translation in question_vi.",
+ "questions": [
+  {
+   "id": "ad01",
+   "split": "dev",
+   "group": "table",
+   "answerable": true,
+   "question": "According to Table 1.1, what was the external debt stock of low- and middle-income countries owed to bondholders (Bonds) at end-2025?",
+   "question_vi": "Theo Bảng 1.1, dư nợ nước ngoài của các nước thu nhập thấp và trung bình đối với trái chủ (Bonds) cuối năm 2025 là bao nhiêu?",
+   "expected_answer": "US$2,364.4 billion",
+   "evidence": [
+    {
+     "pdf_page": 28,
+     "printed_page": "4",
+     "kind": "table",
+     "region": "tab_1_1",
+     "locator": "Table 1.1, row 'Bonds' (under Private creditors), column 2025",
+     "quote_or_value": "2,364.4",
+     "bbox": [
+      40.0,
+      106.5,
+      576.0,
+      458.6
+     ]
+    }
+   ],
+   "reason": "Single cell lookup: right row inside the creditor hierarchy, right year, unit US$ billion."
+  },
+  {
+   "id": "ad02",
+   "split": "dev",
+   "group": "table",
+   "answerable": true,
+   "question": "In Table 1.2, how large were net debt inflows from the IMF to IDA-eligible countries in 2020?",
+   "question_vi": "Trong Bảng 1.2, dòng nợ ròng từ IMF vào các nước đủ điều kiện IDA năm 2020 là bao nhiêu?",
+   "expected_answer": "US$15.2 billion",
+   "evidence": [
+    {
+     "pdf_page": 63,
+     "printed_page": "39",
+     "kind": "table",
+     "region": "tab_1_2",
+     "locator": "Table 1.2, row 'IMF', column 2020",
+     "quote_or_value": "15.2",
+     "bbox": [
+      76.2,
+      398.4,
+      576.0,
+      726.1
+     ]
+    }
+   ],
+   "reason": "Cell lookup in the second table; the IMF row is nested under Multilateral creditors."
+  },
+  {
+   "id": "ad03",
+   "split": "dev",
+   "group": "table",
+   "answerable": true,
+   "question": "Using Table 1.1, by how much did the short-term external debt stock of low- and middle-income countries change between 2015 and 2025?",
+   "question_vi": "Dựa vào Bảng 1.1, dư nợ ngắn hạn của các nước thu nhập thấp và trung bình thay đổi bao nhiêu từ 2015 đến 2025?",
+   "expected_answer": "It rose by US$905.0 billion, from 1,519.1 billion (2015) to 2,424.1 billion (2025).",
+   "calculation": "2,424.1 - 1,519.1 = 905.0",
+   "evidence": [
+    {
+     "pdf_page": 28,
+     "printed_page": "4",
+     "kind": "table",
+     "region": "tab_1_1",
+     "locator": "Table 1.1, row 'Short-term', columns 2015 and 2025",
+     "quote_or_value": "1,519.1 ; 2,424.1",
+     "bbox": [
+      40.0,
+      106.5,
+      576.0,
+      458.6
+     ]
+    }
+   ],
+   "reason": "Calculation from two cells of the same row."
+  },
+  {
+   "id": "ad04",
+   "split": "dev",
+   "group": "figure",
+   "answerable": true,
+   "question": "On the 'How to Read the Aggregate and Country Profiles' page, what do the DRS reporting status codes A, E and P mean?",
+   "question_vi": "Trong trang hướng dẫn đọc hồ sơ quốc gia, các mã trạng thái báo cáo DRS A, E và P nghĩa là gì?",
+   "expected_answer": "A = data as reported by the country; E = estimated; P = preliminary data.",
+   "evidence": [
+    {
+     "pdf_page": 136,
+     "printed_page": "112",
+     "kind": "figure",
+     "region": "guide_p136",
+     "locator": "Annotated profile layout, callout 2 'Country profile'",
+     "quote_or_value": "Data as reported by the country (A); Estimated",
+     "bbox": [
+      0,
+      0,
+      612.0,
+      792.0
+     ]
+    }
+   ],
+   "reason": "Reading an annotated layout diagram (callouts pointing to parts of a sample page)."
+  },
+  {
+   "id": "ad05",
+   "split": "dev",
+   "group": "figure",
+   "answerable": true,
+   "question": "In Ghana's country profile (Figure 2), which bilateral creditor is shown with its own block, and how much public and publicly guaranteed debt does Ghana owe it in 2025?",
+   "question_vi": "Trong hồ sơ Ghana (Figure 2), chủ nợ song phương nào có ô riêng và Ghana nợ bao nhiêu năm 2025?",
+   "expected_answer": "China, US$1,644 million (India 449 million is shown only in the legend; other bilateral 1,473 million).",
+   "evidence": [
+    {
+     "pdf_page": 187,
+     "printed_page": "163",
+     "kind": "figure",
+     "region": "profile_p187",
+     "locator": "Ghana profile, Figure 2, BILATERAL row (first labeled block)",
+     "quote_or_value": "China 1,644",
+     "bbox": [
+      0,
+      0,
+      612.0,
+      792.0
+     ]
+    }
+   ],
+   "reason": "Block diagram: label-value pairing is only clear in the image (the text layer jumbles the order)."
+  },
+  {
+   "id": "ad06",
+   "split": "dev",
+   "group": "figure",
+   "answerable": true,
+   "question": "In the East Asia and Pacific regional profile (Figure 2), which bilateral creditor holds the largest share of the region's public and publicly guaranteed bilateral debt, and how much?",
+   "question_vi": "Trong hồ sơ khu vực Đông Á - Thái Bình Dương (Figure 2), chủ nợ song phương lớn nhất là ai và bao nhiêu?",
+   "expected_answer": "Japan, US$40 billion (out of US$84 billion bilateral; regional pages are in US$ billion).",
+   "evidence": [
+    {
+     "pdf_page": 138,
+     "printed_page": "114",
+     "kind": "figure",
+     "region": "profile_p138",
+     "locator": "East Asia and Pacific profile, Figure 2, BILATERAL row",
+     "quote_or_value": "Japan 40",
+     "bbox": [
+      0,
+      0,
+      612.0,
+      792.0
+     ]
+    }
+   ],
+   "reason": "Block diagram + unit condition (regional pages use US$ billion, country pages US$ million).",
+   "ai_visual_check": "Pairing confirmed on the rendered page image by Claude (AI), 2026-11-16; human check still pending."
+  },
+  {
+   "id": "ad07",
+   "split": "dev",
+   "group": "chart",
+   "answerable": true,
+   "question": "According to Figure 1.22, which country carried out the largest bond buyback among low- and middle-income countries in 2025, and how large was it?",
+   "question_vi": "Theo Hình 1.22, nước nào mua lại trái phiếu nhiều nhất năm 2025 và bao nhiêu?",
+   "expected_answer": "Mexico, US$17,618 million.",
+   "evidence": [
+    {
+     "pdf_page": 72,
+     "printed_page": "48",
+     "kind": "chart",
+     "region": "fig_1_22",
+     "locator": "Figure 1.22, horizontal bar 'Mexico' (data label)",
+     "quote_or_value": "Mexico 17,618",
+     "bbox": [
+      107.0,
+      106.5,
+      576.0,
+      383.5
+     ]
+    }
+   ],
+   "reason": "Bar chart with printed data labels; unit read from the x axis (US$ million)."
+  },
+  {
+   "id": "ad08",
+   "split": "dev",
+   "group": "chart",
+   "answerable": true,
+   "question": "In Figure 3.2 (Debtor Reporting System reporting timetable, 2020-25), in which year was the share of late reporters and nonreporters highest?",
+   "question_vi": "Trong Hình 3.2, năm nào tỷ lệ nước báo cáo muộn hoặc không báo cáo cao nhất?",
+   "expected_answer": "2020 (about 13 percent).",
+   "evidence": [
+    {
+     "pdf_page": 111,
+     "printed_page": "87",
+     "kind": "chart",
+     "region": "fig_3_2",
+     "locator": "Figure 3.2, gold bars 'Late reporters and nonreporters', 2020 bar",
+     "quote_or_value": "~13 percent in 2020 (visual reading; no data labels)",
+     "bbox": [
+      107.0,
+      106.5,
+      576.0,
+      364.6
+     ]
+    }
+   ],
+   "reason": "Compare bars of one series across years; requires the legend colour and the y axis (percent)."
+  },
+  {
+   "id": "ad09",
+   "split": "dev",
+   "group": "chart",
+   "answerable": true,
+   "question": "In Figure 1.6, which of the top 10 borrowers (excluding China) had the largest total debt flows, and which flow component made up most of it?",
+   "question_vi": "Trong Hình 1.6, nước nào trong top 10 có tổng dòng nợ lớn nhất và thành phần nào chiếm phần lớn?",
+   "expected_answer": "Türkiye (about US$69 billion in total), mostly private nonguaranteed flows (about 45 billion); it also had negative short-term flows (about -5 billion).",
+   "evidence": [
+    {
+     "pdf_page": 46,
+     "printed_page": "22",
+     "kind": "chart",
+     "region": "fig_1_6",
+     "locator": "Figure 1.6, stacked bar 'Türkiye'",
+     "quote_or_value": "~69 total; light-blue PNG segment ~24 to ~69 (visual reading)",
+     "bbox": [
+      107.0,
+      106.5,
+      576.0,
+      370.2
+     ]
+    }
+   ],
+   "reason": "Stacked bar chart: compare totals across countries and read the segment legend."
+  },
+  {
+   "id": "ad10",
+   "split": "dev",
+   "group": "multihop",
+   "answerable": true,
+   "question": "The Key Takeaways say LMIC external debt rose 5.5 percent in 2025. Using Table 1.1, how many US$ billion is that increase, and do the table values confirm 5.5 percent?",
+   "question_vi": "Phần Key Takeaways nói nợ nước ngoài LMIC tăng 5,5% năm 2025. Theo Bảng 1.1, mức tăng là bao nhiêu tỷ USD và có khớp 5,5% không?",
+   "expected_answer": "An increase of US$495.4 billion (8,949.6 to 9,445.0 billion), which is 5.5 percent, so the table confirms the text.",
+   "calculation": "9,445.0 - 8,949.6 = 495.4; 495.4 / 8,949.6 = 5.54%",
+   "evidence": [
+    {
+     "pdf_page": 19,
+     "printed_page": "xvii",
+     "kind": "text",
+     "locator": "Key Takeaways, first bullet",
+     "quote_or_value": "jumped 5.5 percent to a record $9.4 trillion in 2025"
+    },
+    {
+     "pdf_page": 28,
+     "printed_page": "4",
+     "kind": "table",
+     "region": "tab_1_1",
+     "locator": "Table 1.1, row 'Debt stock', columns 2024 and 2025",
+     "quote_or_value": "8,949.6 ; 9,445.0",
+     "bbox": [
+      40.0,
+      106.5,
+      576.0,
+      458.6
+     ]
+    }
+   ],
+   "reason": "Combines a text claim with two table cells and a calculation."
+  },
+  {
+   "id": "ad11",
+   "split": "dev",
+   "group": "multihop",
+   "answerable": true,
+   "question": "With how many bilateral creditors did Ghana sign its debt restructuring MoU, and what was Ghana's total external debt stock at end-2025?",
+   "question_vi": "Ghana ký MoU tái cơ cấu nợ với bao nhiêu chủ nợ song phương, và tổng nợ nước ngoài của Ghana cuối 2025 là bao nhiêu?",
+   "expected_answer": "25 bilateral creditors (2024 MoU, about US$5.4 billion restructured); total external debt stock US$38,837 million at end-2025 (+7.6% from 2024).",
+   "evidence": [
+    {
+     "pdf_page": 70,
+     "printed_page": "46",
+     "kind": "text",
+     "locator": "Debt Restructuring in 2025, Ghana paragraph",
+     "quote_or_value": "Ghana signed an MoU with 25 bilateral creditors in 2024"
+    },
+    {
+     "pdf_page": 187,
+     "printed_page": "163",
+     "kind": "figure",
+     "region": "profile_p187",
+     "locator": "Ghana profile, TOTAL EXTERNAL DEBT STOCK, 2025",
+     "quote_or_value": "38,837",
+     "bbox": [
+      0,
+      0,
+      612.0,
+      792.0
+     ]
+    }
+   ],
+   "reason": "Text chapter page + country profile page."
+  },
+  {
+   "id": "ad12",
+   "split": "dev",
+   "group": "multihop",
+   "answerable": true,
+   "question": "In 2025, how many IDA-eligible countries outside Sub-Saharan Africa published fully accessible public debt data?",
+   "question_vi": "Năm 2025, bao nhiêu nước đủ điều kiện IDA ngoài châu Phi cận Sahara công bố dữ liệu nợ công có thể truy cập đầy đủ?",
+   "expected_answer": "25 countries (54 in total minus 29 in Sub-Saharan Africa); Figure 3.1 shows the 'Other regions' bar at 25.",
+   "calculation": "54 - 29 = 25",
+   "evidence": [
+    {
+     "pdf_page": 109,
+     "printed_page": "85",
+     "kind": "text",
+     "locator": "Chapter 3, Debt Reporting Heat Map paragraph",
+     "quote_or_value": "54 countries, or 72 percent, had fully accessible public debt data"
+    },
+    {
+     "pdf_page": 109,
+     "printed_page": "85",
+     "kind": "text",
+     "locator": "same paragraph",
+     "quote_or_value": "to 29 countries (or 76 percent) in 2025"
+    },
+    {
+     "pdf_page": 110,
+     "printed_page": "86",
+     "kind": "chart",
+     "region": "fig_3_1",
+     "locator": "Figure 3.1, Accessibility 2025, orange bar 'Other regions'",
+     "quote_or_value": "~25 (visual)",
+     "bbox": [
+      107.0,
+      106.5,
+      576.0,
+      364.2
+     ]
+    }
+   ],
+   "reason": "Subtraction from two text facts, cross-checked against a chart on the next page."
+  },
+  {
+   "id": "ad13",
+   "split": "dev",
+   "group": "text",
+   "answerable": true,
+   "question": "What were the size, maturity and collateralization of Angola's 2024 total return swap?",
+   "question_vi": "Thỏa thuận total return swap năm 2024 của Angola có quy mô, kỳ hạn và tỷ lệ tài sản đảm bảo thế nào?",
+   "expected_answer": "US$1.2 billion, one year, collateralized at 198 percent (about US$2.4 billion of collateral, mainly external sovereign bonds).",
+   "evidence": [
+    {
+     "pdf_page": 32,
+     "printed_page": "8",
+     "kind": "text",
+     "locator": "Box 1.2 (continued), Angola",
+     "quote_or_value": "Angola entered a $1.2 billion, one-year transaction in 2024 collateralized"
+    }
+   ],
+   "reason": "Condition on year: Angola also has 2025 transactions with different terms."
+  },
+  {
+   "id": "ad14",
+   "split": "dev",
+   "group": "text",
+   "answerable": true,
+   "question": "What average interest rate did International Bank for Reconstruction and Development (IBRD) borrowers get on new commitments in 2025, compared with the previous year?",
+   "question_vi": "Năm 2025, bên vay IBRD được lãi suất bình quân bao nhiêu cho cam kết mới, so với năm trước thế nào?",
+   "expected_answer": "5.5 percent, down from 5.8 percent the previous year (an improvement, unlike IDA-eligible countries).",
+   "evidence": [
+    {
+     "pdf_page": 20,
+     "printed_page": "xviii",
+     "kind": "text",
+     "locator": "Key Takeaways, bullet 'The countries that can least afford it...' (last sentence)",
+     "quote_or_value": "5.5 percent average interest rate"
+    }
+   ],
+   "reason": "Condition: IBRD borrowers, not IDA-eligible countries (8.2 percent) in the same bullet."
+  },
+  {
+   "id": "ad15",
+   "split": "dev",
+   "group": "text",
+   "answerable": true,
+   "question": "Since the Sustainable Development Finance Policy (SDFP) became effective, how many performance and policy actions (PPAs) have been agreed, and what share focused on debt transparency and debt management?",
+   "question_vi": "Từ khi SDFP có hiệu lực, có bao nhiêu PPA được thống nhất và bao nhiêu phần trăm tập trung vào minh bạch và quản lý nợ?",
+   "expected_answer": "887 PPAs; 60 percent on debt transparency and debt management (40 percent on fiscal sustainability).",
+   "evidence": [
+    {
+     "pdf_page": 108,
+     "printed_page": "84",
+     "kind": "text",
+     "locator": "Chapter 3, SDFP paragraph",
+     "quote_or_value": "a total of 887 PPAs have been agreed"
+    }
+   ],
+   "reason": "Text with two linked numbers."
+  },
+  {
+   "id": "au01",
+   "split": "dev",
+   "group": "unanswerable",
+   "answerable": false,
+   "question": "What was Viet Nam's total external debt stock at the end of June 2026?",
+   "question_vi": "Tổng nợ nước ngoài của Việt Nam cuối tháng 6/2026 là bao nhiêu?",
+   "expected_behavior": "search_and_abstain",
+   "near_topic_evidence": "Viet Nam profile (pdf p260) gives end-2025 only: 131,777 million.",
+   "absence_check": {
+    "patterns": [
+     "Viet ?Nam"
+    ],
+    "result": "Mentions only on pdf p8 (contents), p58 (FDI), p260 (profile, data to 2025), p269-270 (appendix lists). No 2026 figure."
+   },
+   "reason": "Tempting to answer with the 2025 value."
+  },
+  {
+   "id": "au02",
+   "split": "dev",
+   "group": "unanswerable",
+   "answerable": false,
+   "question": "What was Singapore's total external debt in 2025?",
+   "question_vi": "Tổng nợ nước ngoài của Singapore năm 2025 là bao nhiêu?",
+   "expected_behavior": "search_and_abstain",
+   "absence_check": {
+    "patterns": [
+     "Singapore"
+    ],
+    "result": "Only pdf p66: notes listed on the Singapore Exchange. No Singapore profile (high-income, not covered)."
+   },
+   "reason": "Near-topic keyword exists but is about a different thing."
+  },
+  {
+   "id": "au03",
+   "split": "dev",
+   "group": "unanswerable",
+   "answerable": false,
+   "question": "What was the Russian Federation's own total external debt stock in 2025?",
+   "question_vi": "Tổng dư nợ nước ngoài của chính Liên bang Nga năm 2025 là bao nhiêu?",
+   "expected_behavior": "search_and_abstain",
+   "absence_check": {
+    "patterns": [
+     "Russian Federation",
+     "^RUSSIAN FEDERATION\\s*\\nUS\\$"
+    ],
+    "result": "Russia appears only as a creditor in other countries' profiles (e.g. Viet Nam 1,392) and on p86; there is no Russian Federation profile page."
+   },
+   "reason": "Creditor amounts could be confused with Russia's own debt."
+  },
+  {
+   "id": "at01",
+   "split": "test",
+   "group": "table",
+   "answerable": true,
+   "question": "According to Table 1.1, how much external debt did low- and middle-income countries owe to the World Bank (IBRD and IDA) at end-2025?",
+   "question_vi": "Theo Bảng 1.1, cuối 2025 các nước thu nhập thấp và trung bình nợ World Bank (IBRD và IDA) bao nhiêu?",
+   "expected_answer": "US$498.7 billion",
+   "evidence": [
+    {
+     "pdf_page": 28,
+     "printed_page": "4",
+     "kind": "table",
+     "region": "tab_1_1",
+     "locator": "Table 1.1, row 'World Bank (IBRD and IDA)', column 2025",
+     "quote_or_value": "498.7",
+     "bbox": [
+      40.0,
+      106.5,
+      576.0,
+      458.6
+     ]
+    }
+   ],
+   "reason": "Row whose label is wrapped over two lines in the PDF."
+  },
+  {
+   "id": "at02",
+   "split": "test",
+   "group": "table",
+   "answerable": true,
+   "question": "In Table 1.2, in which years between 2015 and 2025 were net debt inflows to IDA-eligible countries from bonds negative, and what were the values?",
+   "question_vi": "Trong Bảng 1.2, những năm nào dòng nợ ròng từ trái phiếu vào các nước IDA bị âm, giá trị bao nhiêu?",
+   "expected_answer": "2022 (-US$2.0 billion) and 2023 (-US$0.3 billion).",
+   "evidence": [
+    {
+     "pdf_page": 63,
+     "printed_page": "39",
+     "kind": "table",
+     "region": "tab_1_2",
+     "locator": "Table 1.2, row 'Bonds', columns 2022 and 2023",
+     "quote_or_value": "–2.0 ; –0.3",
+     "bbox": [
+      76.2,
+      398.4,
+      576.0,
+      726.1
+     ]
+    }
+   ],
+   "reason": "Scan a whole row; negative numbers printed with an en dash."
+  },
+  {
+   "id": "at03",
+   "split": "test",
+   "group": "table",
+   "answerable": true,
+   "question": "Using Table 1.1, by how much did long-term public and publicly guaranteed (PPG) external debt of low- and middle-income countries increase from 2024 to 2025?",
+   "question_vi": "Dựa vào Bảng 1.1, nợ dài hạn PPG tăng bao nhiêu từ 2024 đến 2025?",
+   "expected_answer": "US$301.7 billion (from 3,972.7 to 4,274.4 billion), about 7.6 percent.",
+   "calculation": "4,274.4 - 3,972.7 = 301.7; 301.7 / 3,972.7 = 7.59%",
+   "evidence": [
+    {
+     "pdf_page": 28,
+     "printed_page": "4",
+     "kind": "table",
+     "region": "tab_1_1",
+     "locator": "Table 1.1, Memorandum item 'Long-term PPG', columns 2024 and 2025",
+     "quote_or_value": "3,972.7 ; 4,274.4",
+     "bbox": [
+      40.0,
+      106.5,
+      576.0,
+      458.6
+     ]
+    }
+   ],
+   "reason": "Calculation on a memorandum row."
+  },
+  {
+   "id": "at04",
+   "split": "test",
+   "group": "table",
+   "answerable": true,
+   "question": "According to Table 1.2, in which year did net debt inflows from bilateral creditors to IDA-eligible countries peak during 2015-25, and how low were they in 2025?",
+   "question_vi": "Theo Bảng 1.2, dòng nợ ròng từ chủ nợ song phương vào nước IDA đạt đỉnh năm nào (2015-25) và năm 2025 còn bao nhiêu?",
+   "expected_answer": "Peak in 2018 at US$22.1 billion; US$1.4 billion in 2025.",
+   "evidence": [
+    {
+     "pdf_page": 63,
+     "printed_page": "39",
+     "kind": "table",
+     "region": "tab_1_2",
+     "locator": "Table 1.2, row 'Bilateral creditors'",
+     "quote_or_value": "22.1 ; 1.4",
+     "bbox": [
+      76.2,
+      398.4,
+      576.0,
+      726.1
+     ]
+    }
+   ],
+   "reason": "Max over a row plus a second cell."
+  },
+  {
+   "id": "at05",
+   "split": "test",
+   "group": "table",
+   "answerable": true,
+   "question": "What was the total external debt stock of low- and middle-income countries in 2020 according to Table 1.1?",
+   "question_vi": "Theo Bảng 1.1, tổng dư nợ nước ngoài của các nước thu nhập thấp và trung bình năm 2020 là bao nhiêu?",
+   "expected_answer": "US$8,182.1 billion (printed as '8.182.1' in the table, a separator typo).",
+   "evidence": [
+    {
+     "pdf_page": 28,
+     "printed_page": "4",
+     "kind": "table",
+     "region": "tab_1_1",
+     "locator": "Table 1.1, row 'Debt stock', column 2020",
+     "quote_or_value": "8.182.1",
+     "bbox": [
+      40.0,
+      106.5,
+      576.0,
+      458.6
+     ]
+    }
+   ],
+   "reason": "Tests reading a cell whose printed number has a separator typo; the answer must state the value correctly."
+  },
+  {
+   "id": "at06",
+   "split": "test",
+   "group": "table",
+   "answerable": true,
+   "question": "Using Table 1.1, what share of LMICs' long-term external debt was owed to private creditors in 2025?",
+   "question_vi": "Dựa vào Bảng 1.1, năm 2025 tỷ trọng nợ dài hạn đối với chủ nợ tư nhân là bao nhiêu?",
+   "expected_answer": "About 71.6 percent (5,027.6 of 7,020.9 billion).",
+   "calculation": "5,027.6 / 7,020.9 = 71.6%",
+   "evidence": [
+    {
+     "pdf_page": 28,
+     "printed_page": "4",
+     "kind": "table",
+     "region": "tab_1_1",
+     "locator": "Table 1.1, rows 'Private creditors' and 'Long-term', column 2025",
+     "quote_or_value": "5,027.6 ; 7,020.9",
+     "bbox": [
+      40.0,
+      106.5,
+      576.0,
+      458.6
+     ]
+    }
+   ],
+   "reason": "Ratio of a child row to its parent row."
+  },
+  {
+   "id": "at07",
+   "split": "test",
+   "group": "figure",
+   "answerable": true,
+   "question": "In Figure 3B.1 (Debt Statistics Program three-tier architecture), what is Tier 3 and what role does it play, and what links Tier 3 back to Tier 1?",
+   "question_vi": "Trong Hình 3B.1, Tier 3 là gì, vai trò gì, và điều gì nối Tier 3 trở lại Tier 1?",
+   "expected_answer": "Tier 3 is the IDR (International Debt Report), providing 'actionable knowledge'; a dashed feedback loop 'Gaps and findings strengthen reporting' runs back to Tier 1 (DRS).",
+   "evidence": [
+    {
+     "pdf_page": 132,
+     "printed_page": "108",
+     "kind": "figure",
+     "region": "fig_3B_1",
+     "locator": "Figure 3B.1, right box (Tier 3) and the dashed arrow below the boxes",
+     "quote_or_value": "Tier 3 IDR Actionable knowledge; Gaps and findings strengthen reporting",
+     "bbox": [
+      107.0,
+      106.5,
+      576.0,
+      364.0
+     ]
+    }
+   ],
+   "reason": "Diagram with boxes and arrows (not a data chart)."
+  },
+  {
+   "id": "at08",
+   "split": "test",
+   "group": "figure",
+   "answerable": true,
+   "question": "In Viet Nam's country profile (Figure 2), who is Viet Nam's largest bilateral creditor in 2025 and how much is owed?",
+   "question_vi": "Trong hồ sơ Việt Nam (Figure 2), chủ nợ song phương lớn nhất năm 2025 là ai và Việt Nam nợ bao nhiêu?",
+   "expected_answer": "Japan, US$10,155 million (of US$14,419 million bilateral PPG debt).",
+   "evidence": [
+    {
+     "pdf_page": 260,
+     "printed_page": "236",
+     "kind": "figure",
+     "region": "profile_p260",
+     "locator": "Viet Nam profile, Figure 2, BILATERAL row, first block",
+     "quote_or_value": "Japan 10,155",
+     "bbox": [
+      0,
+      0,
+      612.0,
+      792.0
+     ]
+    }
+   ],
+   "reason": "Block diagram; the unit (US$ million) is in the page header."
+  },
+  {
+   "id": "at09",
+   "split": "test",
+   "group": "figure",
+   "answerable": true,
+   "question": "In Sri Lanka's country profile (Figure 2), which multilateral creditor accounts for the largest block of Sri Lanka's multilateral PPG debt in 2025, and how much?",
+   "question_vi": "Trong hồ sơ Sri Lanka (Figure 2), chủ nợ đa phương nào chiếm phần lớn nhất và bao nhiêu?",
+   "expected_answer": "The Asian Development Bank, US$7,379 million (of 16,462 million multilateral).",
+   "evidence": [
+    {
+     "pdf_page": 241,
+     "printed_page": "217",
+     "kind": "figure",
+     "region": "profile_p241",
+     "locator": "Sri Lanka profile, Figure 2, MULTILATERAL row, first block",
+     "quote_or_value": "Asian Dev. Bank 7,379",
+     "bbox": [
+      0,
+      0,
+      612.0,
+      792.0
+     ]
+    }
+   ],
+   "reason": "Block diagram where World Bank-IDA is NOT the largest (unlike many IDA countries).",
+   "ai_visual_check": "Pairing confirmed on the rendered page image by Claude (AI), 2026-11-16; human check still pending."
+  },
+  {
+   "id": "at10",
+   "split": "test",
+   "group": "figure",
+   "answerable": true,
+   "question": "In Kenya's country profile (Figure 2), which multilateral creditor other than World Bank-IDA is shown with its own block, and how much does Kenya owe it?",
+   "question_vi": "Trong hồ sơ Kenya (Figure 2), ngoài World Bank-IDA, chủ nợ đa phương nào có ô riêng và Kenya nợ bao nhiêu?",
+   "expected_answer": "The African Development Bank (AfDB), US$4,413 million.",
+   "evidence": [
+    {
+     "pdf_page": 202,
+     "printed_page": "178",
+     "kind": "figure",
+     "region": "profile_p202",
+     "locator": "Kenya profile, Figure 2, MULTILATERAL row, second block",
+     "quote_or_value": "AfDB 4,413",
+     "bbox": [
+      0,
+      0,
+      612.0,
+      792.0
+     ]
+    }
+   ],
+   "reason": "Block diagram reading.",
+   "ai_visual_check": "Pairing confirmed by layout parse (label and value inside the same drawn block, items sum to the MULTILATERAL total 26,297; extract.py profiles), 2026-11-16; human check still pending."
+  },
+  {
+   "id": "at11",
+   "split": "test",
+   "group": "figure",
+   "answerable": true,
+   "question": "In the aggregate and country profiles, what does the shaded band in Figure 3 (debt ratios) represent?",
+   "question_vi": "Trong các trang hồ sơ, dải tô bóng ở Figure 3 (tỷ lệ nợ) thể hiện điều gì?",
+   "expected_answer": "The 25th-75th percentile range of DRS reporting countries (for regional pages: of that region's DRS reporting countries).",
+   "evidence": [
+    {
+     "pdf_page": 136,
+     "printed_page": "112",
+     "kind": "figure",
+     "region": "guide_p136",
+     "locator": "How-to-read page, sample Figure 3 subtitle",
+     "quote_or_value": "25th–75th percentile range of DRS reporting countries",
+     "bbox": [
+      0,
+      0,
+      612.0,
+      792.0
+     ]
+    },
+    {
+     "pdf_page": 138,
+     "printed_page": "114",
+     "kind": "figure",
+     "region": "profile_p138",
+     "locator": "Regional profile Figure 3 subtitle",
+     "quote_or_value": "Shaded band shows the 25th–75th percentile range of East Asia and Pacific DRS reporting countries",
+     "bbox": [
+      0,
+      0,
+      612.0,
+      792.0
+     ]
+    }
+   ],
+   "reason": "Explains a visual encoding used in a figure."
+  },
+  {
+   "id": "at12",
+   "split": "test",
+   "group": "chart",
+   "answerable": true,
+   "question": "According to Figure 2.10, how many LIC-DSF external risk rating downgrades and upgrades were there in total over 2020-25?",
+   "question_vi": "Theo Hình 2.10, tổng cộng giai đoạn 2020-25 có bao nhiêu lần hạ và nâng hạng rủi ro nợ nước ngoài LIC-DSF?",
+   "expected_answer": "22 downgrades and 15 upgrades.",
+   "evidence": [
+    {
+     "pdf_page": 88,
+     "printed_page": "64",
+     "kind": "chart",
+     "region": "fig_2_10",
+     "locator": "Figure 2.10 panels a and b, final '2020–25' bars",
+     "quote_or_value": "–22 ; 15",
+     "bbox": [
+      107.0,
+      474.7,
+      576.0,
+      712.5
+     ]
+    }
+   ],
+   "reason": "Waterfall charts with data labels; the summary bar is explained in the note."
+  },
+  {
+   "id": "at13",
+   "split": "test",
+   "group": "chart",
+   "answerable": true,
+   "question": "In Figure 1.15, which region received the most remittances in 2025, and how did remittances to Sub-Saharan Africa change from 2024 to 2025?",
+   "question_vi": "Trong Hình 1.15, khu vực nào nhận kiều hối nhiều nhất năm 2025, và kiều hối vào châu Phi cận Sahara thay đổi thế nào từ 2024 sang 2025?",
+   "expected_answer": "South Asia (about US$207 billion); Sub-Saharan Africa fell (from about 63 to about 52 billion).",
+   "evidence": [
+    {
+     "pdf_page": 58,
+     "printed_page": "34",
+     "kind": "chart",
+     "region": "fig_1_15",
+     "locator": "Figure 1.15, 2025 group (grey bar) and dark-navy bars 2024 vs 2025",
+     "quote_or_value": "South Asia ~207 (2025); SSA ~63 (2024) -> ~52 (2025) (visual)",
+     "bbox": [
+      107.0,
+      106.5,
+      576.0,
+      349.2
+     ]
+    }
+   ],
+   "reason": "Grouped bars: compare series via legend colours and across years."
+  },
+  {
+   "id": "at14",
+   "split": "test",
+   "group": "chart",
+   "answerable": true,
+   "question": "According to Figure 3.3, how much debt was reported in the creditor data-sharing exercise at end-2024, and how did it compare with end-2023?",
+   "question_vi": "Theo Hình 3.3, tổng nợ được báo cáo trong đợt chia sẻ dữ liệu chủ nợ cuối 2024 là bao nhiêu, so với cuối 2023 thế nào?",
+   "expected_answer": "US$63.4 billion at end-2024, up 3 percent from US$61.8 billion at end-2023.",
+   "evidence": [
+    {
+     "pdf_page": 113,
+     "printed_page": "89",
+     "kind": "chart",
+     "region": "fig_3_3",
+     "locator": "Figure 3.3, header tile 'Debt reported' and bars End-2023 / End-2024",
+     "quote_or_value": "$63.4 billion; 3% from $61.8 billion in 2023",
+     "bbox": [
+      107.0,
+      106.5,
+      576.0,
+      385.8
+     ]
+    }
+   ],
+   "reason": "Infographic + bar chart with printed values."
+  },
+  {
+   "id": "at15",
+   "split": "test",
+   "group": "chart",
+   "answerable": true,
+   "question": "In Figure 2.7, how many low- and middle-income economies had fiscal rules in 2000, and which group (commodity exporters or importers) made up the majority throughout 2000-24?",
+   "question_vi": "Trong Hình 2.7, năm 2000 có bao nhiêu nền kinh tế có quy tắc tài khóa, và nhóm nào chiếm đa số suốt 2000-24?",
+   "expected_answer": "20 economies in 2000 (about 15 exporters and 5 importers); commodity exporters were the majority in every year.",
+   "evidence": [
+    {
+     "pdf_page": 84,
+     "printed_page": "60",
+     "kind": "chart",
+     "region": "fig_2_7",
+     "locator": "Figure 2.7, stacked bar 2000 and all bars",
+     "quote_or_value": "2000 bar top at the 20 gridline; dark (exporters) segment larger every year (visual)",
+     "bbox": [
+      107.0,
+      106.5,
+      576.0,
+      381.3
+     ]
+    }
+   ],
+   "reason": "Stacked bar chart: total on a gridline + compare segments over time."
+  },
+  {
+   "id": "at16",
+   "split": "test",
+   "group": "chart",
+   "answerable": true,
+   "question": "In Figure 3.1, how many Sub-Saharan African IDA-eligible countries had full instrument coverage of public debt data in 2020 and in 2025?",
+   "question_vi": "Trong Hình 3.1, số nước IDA châu Phi cận Sahara có độ bao phủ đầy đủ năm 2020 và 2025 là bao nhiêu?",
+   "expected_answer": "About 18 in 2020 and about 24 in 2025.",
+   "evidence": [
+    {
+     "pdf_page": 110,
+     "printed_page": "86",
+     "kind": "chart",
+     "region": "fig_3_1",
+     "locator": "Figure 3.1, Coverage panel, light-blue bars 2020 and 2025",
+     "quote_or_value": "~18 ; ~24 (visual; consistent with 33 = 18 + 15 and 45 = 24 + 21)",
+     "bbox": [
+      107.0,
+      106.5,
+      576.0,
+      364.2
+     ]
+    }
+   ],
+   "reason": "Values only in the chart (the text gives totals, not the Sub-Saharan split for coverage)."
+  },
+  {
+   "id": "at17",
+   "split": "test",
+   "group": "multihop",
+   "answerable": true,
+   "question": "By end-2025, how much of Sri Lanka's agreed bilateral debt restructuring had been signed, and how much public and publicly guaranteed debt did Sri Lanka owe China at end-2025 according to its country profile?",
+   "question_vi": "Đến cuối 2025, Sri Lanka đã ký tái cơ cấu được bao nhiêu nợ song phương đã thỏa thuận, và theo hồ sơ quốc gia Sri Lanka nợ Trung Quốc bao nhiêu?",
+   "expected_answer": "US$8.8 billion, 88 percent of the US$10 billion agreed; Sri Lanka owed China US$8,766 million (largest bilateral creditor).",
+   "evidence": [
+    {
+     "pdf_page": 70,
+     "printed_page": "46",
+     "kind": "text",
+     "locator": "Debt Restructuring in 2025, Sri Lanka paragraph",
+     "quote_or_value": "Together, these creditors restructured $8.8 billion"
+    },
+    {
+     "pdf_page": 241,
+     "printed_page": "217",
+     "kind": "figure",
+     "region": "profile_p241",
+     "locator": "Sri Lanka profile, Figure 2, BILATERAL row, China",
+     "quote_or_value": "China 8,766",
+     "bbox": [
+      0,
+      0,
+      612.0,
+      792.0
+     ]
+    }
+   ],
+   "reason": "Chapter text + country profile.",
+   "ai_visual_check": "Pairing confirmed on the rendered page image by Claude (AI), 2026-11-16; human check still pending."
+  },
+  {
+   "id": "at18",
+   "split": "test",
+   "group": "multihop",
+   "answerable": true,
+   "question": "With how many of its MoU creditors had Zambia signed bilateral agreements by end-2025, and what was Zambia's total external debt stock in 2025?",
+   "question_vi": "Đến cuối 2025, Zambia đã ký thỏa thuận song phương với bao nhiêu chủ nợ trong MoU, và tổng nợ nước ngoài của Zambia năm 2025 là bao nhiêu?",
+   "expected_answer": "6 of the 16 creditors that signed the MoU; total external debt stock US$28,633 million (+2.1% from 2024).",
+   "evidence": [
+    {
+     "pdf_page": 70,
+     "printed_page": "46",
+     "kind": "text",
+     "locator": "Debt Restructuring in 2025, Zambia paragraph",
+     "quote_or_value": "Zambia had signed a bilateral agreement with 6 of the 16 creditors"
+    },
+    {
+     "pdf_page": 262,
+     "printed_page": "238",
+     "kind": "figure",
+     "region": "profile_p262",
+     "locator": "Zambia profile, TOTAL EXTERNAL DEBT STOCK, 2025",
+     "quote_or_value": "28,633",
+     "bbox": [
+      0,
+      0,
+      612.0,
+      792.0
+     ]
+    }
+   ],
+   "reason": "Chapter text + country profile; the same paragraph also gives Ghana's and Sri Lanka's counts."
+  },
+  {
+   "id": "at19",
+   "split": "test",
+   "group": "multihop",
+   "answerable": true,
+   "question": "Was the interest rate on Kenya's 2025 new commitments from private creditors higher or lower than the average interest rate IDA-eligible countries faced on new commitments in 2025, and by how many percentage points?",
+   "question_vi": "Lãi suất cam kết mới từ chủ nợ tư nhân của Kenya năm 2025 cao hay thấp hơn lãi suất bình quân của nhóm IDA, chênh bao nhiêu điểm phần trăm?",
+   "expected_answer": "Higher: 8.8 percent for Kenya (private creditors) vs 8.2 percent average for IDA-eligible countries, a difference of 0.6 percentage points.",
+   "calculation": "8.8 - 8.2 = 0.6",
+   "evidence": [
+    {
+     "pdf_page": 202,
+     "printed_page": "178",
+     "kind": "figure",
+     "region": "profile_p202",
+     "locator": "Kenya profile, Figure 4, Private creditors, Interest rate",
+     "quote_or_value": "8.8%",
+     "bbox": [
+      0,
+      0,
+      612.0,
+      792.0
+     ]
+    },
+    {
+     "pdf_page": 20,
+     "printed_page": "xviii",
+     "kind": "text",
+     "locator": "Key Takeaways",
+     "quote_or_value": "average interest rate of 8.2 percent"
+    }
+   ],
+   "reason": "Profile figure + text; Kenya is a Blend (IDA-eligible) country."
+  },
+  {
+   "id": "at20",
+   "split": "test",
+   "group": "multihop",
+   "answerable": true,
+   "question": "In 2025 Colombia both entered total return swaps and bought back bonds. How large were each of these operations?",
+   "question_vi": "Năm 2025 Colombia vừa ký total return swap vừa mua lại trái phiếu. Quy mô từng hoạt động là bao nhiêu?",
+   "expected_answer": "Total return swaps of about US$9.3 billion (one-year maturity, about 160% collateralization); bond buyback of US$6,606 million (about $6.6 billion).",
+   "evidence": [
+    {
+     "pdf_page": 32,
+     "printed_page": "8",
+     "kind": "text",
+     "locator": "Box 1.2 (continued), Colombia",
+     "quote_or_value": "TRS transactions totaling approximately $9.3 billion in 2025"
+    },
+    {
+     "pdf_page": 72,
+     "printed_page": "48",
+     "kind": "chart",
+     "region": "fig_1_22",
+     "locator": "Figure 1.22, bar 'Colombia'",
+     "quote_or_value": "Colombia 6,606",
+     "bbox": [
+      107.0,
+      106.5,
+      576.0,
+      383.5
+     ]
+    }
+   ],
+   "reason": "Box text + chart on another page; units differ (billion vs million)."
+  },
+  {
+   "id": "at21",
+   "split": "test",
+   "group": "text",
+   "answerable": true,
+   "question": "How much did the external debt of low-income countries grow in 2025, and to what level?",
+   "question_vi": "Nợ nước ngoài của các nước thu nhập thấp tăng bao nhiêu năm 2025 và lên mức nào?",
+   "expected_answer": "8.9 percent, to US$262.4 billion (the biggest increase since 2020).",
+   "evidence": [
+    {
+     "pdf_page": 19,
+     "printed_page": "xvii",
+     "kind": "text",
+     "locator": "Key Takeaways, first bullet",
+     "quote_or_value": "8.9 percent to $262.4 billion"
+    }
+   ],
+   "reason": "Condition: low-income countries, not all LMICs (5.5%) nor IDA-eligible (8.1%) in the same sentence."
+  },
+  {
+   "id": "at22",
+   "split": "test",
+   "group": "text",
+   "answerable": true,
+   "question": "What share of new disbursements did LMICs' public sector bond issuances account for in 2025, and what was their volume?",
+   "question_vi": "Năm 2025, phát hành trái phiếu khu vực công của LMIC chiếm bao nhiêu phần trăm giải ngân mới và đạt bao nhiêu?",
+   "expected_answer": "68.1 percent of new disbursements; up 34.6 percent to US$250.6 billion.",
+   "evidence": [
+    {
+     "pdf_page": 20,
+     "printed_page": "xviii",
+     "kind": "text",
+     "locator": "Key Takeaways, bullet 'The bond market reopened for LMICs'",
+     "quote_or_value": "68.1 percent of new disbursements in 2025"
+    }
+   ],
+   "reason": "Text with several linked numbers."
+  },
+  {
+   "id": "at23",
+   "split": "test",
+   "group": "text",
+   "answerable": true,
+   "question": "How did the external debt-to-income ratio change in 2025 for IDA-eligible countries, and what was the ratio for LMICs excluding China?",
+   "question_vi": "Năm 2025 tỷ lệ nợ nước ngoài trên thu nhập của nhóm IDA thay đổi thế nào, và của LMIC không tính Trung Quốc là bao nhiêu?",
+   "expected_answer": "IDA-eligible: fell from 42.1 to 41.2 percent; LMICs excluding China: rose to 34.5 percent.",
+   "evidence": [
+    {
+     "pdf_page": 21,
+     "printed_page": "xix",
+     "kind": "text",
+     "locator": "Key Takeaways, bullet 'Debt burdens eased in IDA-eligible countries...'",
+     "quote_or_value": "fell from 42.1 percent to 41.2 percent"
+    }
+   ],
+   "reason": "Two conditions (group; excluding China) in one passage."
+  },
+  {
+   "id": "at24",
+   "split": "test",
+   "group": "text",
+   "answerable": true,
+   "question": "How many IDA-eligible countries does the World Bank's Debt Reporting Heat Map cover, and across how many indicators?",
+   "question_vi": "Debt Reporting Heat Map của World Bank bao phủ bao nhiêu nước IDA và bao nhiêu chỉ số?",
+   "expected_answer": "76 IDA-eligible countries across nine key indicators.",
+   "evidence": [
+    {
+     "pdf_page": 109,
+     "printed_page": "85",
+     "kind": "text",
+     "locator": "Chapter 3, heat map paragraph",
+     "quote_or_value": "76 IDA-eligible countries across nine key indicators"
+    }
+   ],
+   "reason": "Text fact."
+  },
+  {
+   "id": "au04",
+   "split": "test",
+   "group": "unanswerable",
+   "answerable": false,
+   "question": "How much of Ghana's debt was restructured in its bilateral agreement with France?",
+   "question_vi": "Thỏa thuận song phương giữa Ghana và Pháp tái cơ cấu bao nhiêu nợ?",
+   "expected_behavior": "search_and_abstain",
+   "absence_check": {
+    "patterns": [
+     "France",
+     "not\\s+been\\s+disclosed"
+    ],
+    "result": "p70 names France among Ghana's signed agreements and states the amount restructured 'has not been disclosed'; other France hits are profile legend entries for other countries and p71 (a different country's agreement)."
+   },
+   "reason": "The document explicitly says the amount is not disclosed."
+  },
+  {
+   "id": "au05",
+   "split": "test",
+   "group": "unanswerable",
+   "answerable": false,
+   "question": "How many low- and middle-income economies had fiscal rules in 2025?",
+   "question_vi": "Năm 2025 có bao nhiêu nền kinh tế thu nhập thấp và trung bình có quy tắc tài khóa?",
+   "expected_behavior": "search_and_abstain",
+   "absence_check": {
+    "patterns": [
+     "fiscal rules?"
+    ],
+    "result": "Figure 2.7 and its source database end in 2024 (p84, p104); no 2025 count on p10, p83, p95."
+   },
+   "reason": "Nearby year exists in the chart; extrapolation would be a guess."
+  },
+  {
+   "id": "au06",
+   "split": "test",
+   "group": "unanswerable",
+   "answerable": false,
+   "question": "How much in remittances did Viet Nam receive in 2025?",
+   "question_vi": "Việt Nam nhận bao nhiêu kiều hối năm 2025?",
+   "expected_behavior": "search_and_abstain",
+   "absence_check": {
+    "patterns": [
+     "Viet ?Nam",
+     "remittance"
+    ],
+    "result": "Viet Nam appears on p58 only as a large FDI recipient; the profile (p260) has no remittance data; Figure 1.15 is by region."
+   },
+   "reason": "Regional remittance data and a Viet Nam profile both exist, but not this figure."
+  },
+  {
+   "id": "au07",
+   "split": "test",
+   "group": "unanswerable",
+   "answerable": false,
+   "question": "What rating action did Moody's take on Kenya in 2025?",
+   "question_vi": "Moody's đã có hành động xếp hạng gì với Kenya năm 2025?",
+   "expected_behavior": "search_and_abstain",
+   "absence_check": {
+    "patterns": [
+     "Moody|S&P|Fitch",
+     "credit rating"
+    ],
+    "result": "Only p86 (Box 2.1): Moody's downgraded Bolivia and Botswana and upgraded Costa Rica; nothing on Kenya."
+   },
+   "reason": "Near-topic passage about Moody's exists."
+  },
+  {
+   "id": "au08",
+   "split": "test",
+   "group": "unanswerable",
+   "answerable": false,
+   "question": "What interest rate or spread did Colombia pay on its 2025 total return swaps?",
+   "question_vi": "Colombia trả lãi suất hay biên lãi bao nhiêu cho các total return swap năm 2025?",
+   "expected_behavior": "search_and_abstain",
+   "absence_check": {
+    "patterns": [
+     "Colombia",
+     "spread"
+    ],
+    "result": "Box 1.2 (p31-33) gives Colombia's size (~$9.3bn), maturity (1 year) and collateralization (~160%) but no rate; 'spread' appears only in the generic TRS definition."
+   },
+   "reason": "Same box as at20; tests not inventing a missing attribute."
+  },
+  {
+   "id": "au09",
+   "split": "test",
+   "group": "unanswerable",
+   "answerable": false,
+   "question": "What is the projected external debt stock of India for 2027?",
+   "question_vi": "Dự báo dư nợ nước ngoài của Ấn Độ năm 2027 là bao nhiêu?",
+   "expected_behavior": "search_and_abstain",
+   "absence_check": {
+    "patterns": [
+     "forecast|projection",
+     "2027"
+    ],
+    "result": "No forecasts/projections in the document; '2027' only refers to bond maturities and DSF review timing (p43, p64, p72-73, p88-89)."
+   },
+   "reason": "India has a profile with 2015-25 data; a projection would be invented."
+  }
+ ]
+}
